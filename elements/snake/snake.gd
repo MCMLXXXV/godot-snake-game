@@ -62,11 +62,11 @@ var direction = Vector2(1, 0)
 Places the snake on the grid with a desired number of initial body segments,
 starting at the given grid position and orientend towards the given direction.
 """
-func initialize(initial_segments, initial_grid_position, initial_direction):
+func initialize(initial_segments, initial_grid_cell, initial_direction):
 	direction = initial_direction
 	for i in range(0, initial_segments):
-		add_segment(initial_grid_position)
-		initial_grid_position += direction
+		add_segment(initial_grid_cell)
+		initial_grid_cell += direction
 
 
 """

@@ -2,18 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/segment.png-317347d5791e5178743a0d24f969de90.stex"
+path="res://.import/segment.png-6867d2f4515d1d7f980e64e61d76913d.stex"
 
 [deps]
 
-source_file="res://elements/segment/segment.png"
-dest_files=[ "res://.import/segment.png-317347d5791e5178743a0d24f969de90.stex" ]
+source_file="res://elements/snake/segment.png"
+dest_files=[ "res://.import/segment.png-6867d2f4515d1d7f980e64e61d76913d.stex" ]
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -23,6 +24,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

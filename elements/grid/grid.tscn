@@ -4,20 +4,20 @@
 [ext_resource path="res://elements/snake/snake.tscn" type="PackedScene" id=2]
 [ext_resource path="res://elements/food/food.tscn" type="PackedScene" id=3]
 
-[node name="Grid" type="Node2D"]
+[node name="grid" type="Node2D"]
 position = Vector2( 4, 8 )
 script = ExtResource( 1 )
 grid_width = 22
 grid_height = 39
 
-[node name="Clock" type="Timer" parent="."]
+[node name="clock" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.2
 
-[node name="Snake" parent="." instance=ExtResource( 2 )]
+[node name="snake" parent="." instance=ExtResource( 2 )]
 
-[node name="Food" parent="." instance=ExtResource( 3 )]
+[node name="food" parent="." instance=ExtResource( 3 )]
 
-[connection signal="timeout" from="Clock" to="." method="_on_clock_timeout"]
-[connection signal="died" from="Snake" to="." method="snake_died"]
-[connection signal="eaten" from="Food" to="." method="snake_ate_food"]
+[connection signal="timeout" from="clock" to="." method="_on_clock_timeout"]
+[connection signal="died" from="snake" to="." method="snake_died"]
+[connection signal="eaten" from="food" to="." method="snake_ate_food"]

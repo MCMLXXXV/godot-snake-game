@@ -68,9 +68,9 @@ func _draw():
 Node initialization.
 """
 func _ready():
-	$Snake.initialize(5, get_random_grid_position(5), get_random_direction())
-	$Food.place($Snake.get_free_cells())
-	$Clock.start()
+	$snake.initialize(5, get_random_grid_cell(5), get_random_direction())
+	$food.place($snake.get_free_cells())
+	$clock.start()
 
 
 """
@@ -79,28 +79,28 @@ Node update process.
 func _process(delta):
 	if is_running():
 		if Input.is_action_just_pressed("ui_left"):
-			$Snake.turn_left()
+			$snake.turn_left()
 		if Input.is_action_just_pressed("ui_right"):
-			$Snake.turn_right()
+			$snake.turn_right()
 
 
 """
 Advances the game state every clock tick.
 """
 func _on_clock_timeout():
-	var new_head = $Snake.get_new_head()
-	if $Food.check_collision(new_head):
-		$Snake.add_segment(new_head)
-		$Food.place($Snake.get_free_cells())
+	var new_head = $snake.get_new_head()
+	if $food.check_collision(new_head):
+		$snake.add_segment(new_head)
+		$food.place($snake.get_free_cells())
 	else:
-		$Snake.move()
+		$snake.move()
 
 """
 Changes the direction of the snake when the game is running.
 """
 func turn_left():
 	if is_running():
-		$Snake.turn_left()
+		$snake.turn_left()
 
 
 """
@@ -108,27 +108,27 @@ Changes the direction of the snake when the game is running.
 """
 func turn_right():
 	if is_running():
-		$Snake.turn_right()
+		$snake.turn_right()
 
 
 """
 Pauses the game.
 """
 func pause():
-	$Clock.paused = not $Clock.paused
+	$clock.paused = not $clock.paused
 
 
 """
 Indicates if game is apt to respond to input events.
 """
 func is_running():
-	return not ($Clock.is_paused() or $Clock.is_stopped())
+	return not ($clock.is_paused() or $clock.is_stopped())
 
 
 """
 Get a random coordinate on the grid to spawn the snake.
 """
-func get_random_grid_position(margin):
+func get_random_grid_cell(margin):
 	var x = margin + randi() % (grid_width - 2 * margin)
 	var y = margin + randi() % (grid_height - 2 * margin)
 
@@ -146,14 +146,14 @@ func get_random_direction():
 Increase the game speed.
 """
 func decrease_clock_delay():
-	if $Clock.wait_time > 0.08:
-		$Clock.wait_time -= 0.02
+	if $clock.wait_time > 0.08:
+		$clock.wait_time -= 0.02
 
 """
 Signal callback: stops the game when the snake runs over itself.
 """
 func snake_died():
-	$Clock.stop()
+	$clock.stop()
 	emit_signal("game_over")
 
 

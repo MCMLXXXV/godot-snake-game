@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://elements/snake/snake.gd" type="Script" id=1]
-[ext_resource path="res://elements/segment/segment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://elements/snake/segment.tscn" type="PackedScene" id=2]
 
-[node name="Snake" type="Node2D"]
+[node name="snake" type="Node2D"]
 script = ExtResource( 1 )
 Segment = ExtResource( 2 )
 
