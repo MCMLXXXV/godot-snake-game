@@ -25,12 +25,11 @@ Global="*res://autoload/global.gd"
 
 [display]
 
-window/size/width=360
-window/size/height=640
-window/size/resizable=false
+window/size/width=720
+window/size/height=360
 window/dpi/allow_hidpi=true
-window/handheld/orientation="portrait"
-window/stretch/mode="viewport"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 window/handheld/emulate_touchscreen=true
 
 [importer_defaults]

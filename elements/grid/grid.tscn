@@ -5,10 +5,10 @@
 [ext_resource path="res://elements/food/food.tscn" type="PackedScene" id=3]
 
 [node name="grid" type="Node2D"]
-position = Vector2( 4, 8 )
+position = Vector2( 8, 4 )
 script = ExtResource( 1 )
-grid_width = 22
-grid_height = 39
+grid_width = 44
+grid_height = 22
 
 [node name="clock" type="Timer" parent="."]
 process_mode = 0

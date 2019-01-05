@@ -38,14 +38,14 @@ script = ExtResource( 1 )
 [node name="main_layout" type="VBoxContainer" parent="."]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 352.0
-margin_bottom = 632.0
+margin_right = 712.0
+margin_bottom = 352.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
 
 [node name="header" type="HBoxContainer" parent="main_layout"]
-margin_right = 344.0
+margin_right = 704.0
 margin_bottom = 14.0
 
 [node name="game_over_label" type="Label" parent="main_layout/header"]
@@ -58,13 +58,13 @@ text = "GAME OVER"
 
 [node name="spacer" type="Container" parent="main_layout/header"]
 margin_left = 148.0
-margin_right = 324.0
+margin_right = 684.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 
 [node name="points" type="Label" parent="main_layout/header"]
-margin_left = 328.0
-margin_right = 344.0
+margin_left = 688.0
+margin_right = 704.0
 margin_bottom = 14.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -74,19 +74,19 @@ align = 2
 
 [node name="grid_container" type="Container" parent="main_layout"]
 margin_top = 14.0
-margin_right = 344.0
-margin_bottom = 560.0
+margin_right = 704.0
+margin_bottom = 280.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="grid" parent="main_layout/grid_container" instance=ExtResource( 3 )]
-grid_width = 21
-grid_height = 33
+position = Vector2( 0, 8 )
+grid_height = 15
 
 [node name="game_controls" type="HBoxContainer" parent="main_layout"]
-margin_top = 560.0
-margin_right = 344.0
-margin_bottom = 624.0
+margin_top = 280.0
+margin_right = 704.0
+margin_bottom = 344.0
 size_flags_horizontal = 3
 custom_constants/separation = 0
 alignment = 1
@@ -100,22 +100,22 @@ texture_normal = ExtResource( 4 )
 
 [node name="spacer" type="CenterContainer" parent="main_layout/game_controls"]
 margin_left = 80.0
-margin_right = 264.0
+margin_right = 624.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 
 [node name="pause_button" type="TextureButton" parent="main_layout/game_controls/spacer"]
-margin_left = 60.0
+margin_left = 240.0
 margin_top = 20.0
-margin_right = 124.0
+margin_right = 304.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 64, 24 )
 action_mode = 0
 texture_normal = ExtResource( 5 )
 
 [node name="right_button" type="TextureButton" parent="main_layout/game_controls"]
-margin_left = 264.0
-margin_right = 344.0
+margin_left = 624.0
+margin_right = 704.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 80, 64 )
 action_mode = 0
