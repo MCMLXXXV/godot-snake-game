@@ -11,6 +11,7 @@ grid_width = 22
 grid_height = 39
 
 [node name="Clock" type="Timer" parent="."]
+process_mode = 0
 wait_time = 0.2
 
 [node name="Snake" parent="." instance=ExtResource( 2 )]
