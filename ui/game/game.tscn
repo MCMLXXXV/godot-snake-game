@@ -131,6 +131,6 @@ texture_normal = ExtResource( 6 )
 
 [connection signal="game_over" from="MarginContainer/Layout/GridContainer/Grid" to="." method="game_over"]
 [connection signal="score_updated" from="MarginContainer/Layout/GridContainer/Grid" to="." method="update_score"]
-[connection signal="pressed" from="MarginContainer/Layout/Controls/LeftButton" to="." method="turn_left"]
-[connection signal="pressed" from="MarginContainer/Layout/Controls/Spacer/PauseButton" to="." method="pause"]
-[connection signal="pressed" from="MarginContainer/Layout/Controls/RightButton" to="." method="turn_right"]
+[connection signal="pressed" from="MarginContainer/Layout/Controls/LeftButton" to="MarginContainer/Layout/GridContainer/Grid" method="turn_left"]
+[connection signal="pressed" from="MarginContainer/Layout/Controls/Spacer/PauseButton" to="MarginContainer/Layout/GridContainer/Grid" method="pause"]
+[connection signal="pressed" from="MarginContainer/Layout/Controls/RightButton" to="MarginContainer/Layout/GridContainer/Grid" method="turn_right"]
