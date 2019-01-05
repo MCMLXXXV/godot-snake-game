@@ -9,19 +9,6 @@ extends MarginContainer
 
 
 """
-Quick retrieve of the high score label on start up.
-"""
-onready var high_score_label = $CenterContainer/HBoxContainer/VerticalContainer/HighScoreLabel
-
-
-"""
-Updates the high score label with the actual value.
-"""
-func _ready():
-	high_score_label.text = high_score_label.text % [Global.high_score]
-
-
-"""
 Input processing. Nothing fancy, just start the game with a single screen tap,
 or with the click of the mouse.
 """
