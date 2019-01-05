@@ -76,9 +76,9 @@ snake.
 func add_segment(position):
 	var sprite = Segment.instance()
 	sprite.position = position * cell_length
-	
+
 	segments.push_front(position)
-	
+
 	add_child(sprite)
 
 
@@ -120,7 +120,7 @@ func get_new_head():
 
 	new_head.x = wrapf(head.x + direction.x, 0, grid_width)
 	new_head.y = wrapf(head.y + direction.y, 0, grid_height)
-	
+
 	return new_head
 
 
@@ -130,7 +130,7 @@ Move the snake one step in the grid.
 func move():
 	segments.push_front(get_new_head())
 	segments.pop_back()
-	
+
 	if not check_self_collision():
 		update_segments()
 		updated = true
@@ -141,9 +141,9 @@ Updates the sprites of the body segments on the grid.
 """
 func update_segments():
 	var sprites = get_children()
-	
+
 	for i in len(segments):
-		var sprite = sprites[i]		
+		var sprite = sprites[i]
 		var segment = segments[i]
 		sprite.position = cell_length * segment
 
@@ -153,17 +153,17 @@ Creates an array of cells not occupied by the snake on the grid.
 """
 func get_free_cells():
 	var free_cells = []
-	
+
 	for i in range(0, grid_height):
 		for j in range(0, grid_width):
 			var cell = Vector2(j, i)
 			if not cell in segments:
 				free_cells.append(cell)
-	
+
 	if free_cells.empty():
 		# The snake is covering the whole grid!
 		emit_signal("died")
-	
+
 	return free_cells
 
 

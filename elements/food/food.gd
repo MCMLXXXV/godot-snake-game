@@ -36,7 +36,7 @@ func place(free_cells):
 	if not free_cells.empty():
 		var total = len(free_cells)
 		var index = randi() % total
-		
+
 		grid_position = free_cells[index]
 		position = grid_position * cell_length
 
@@ -48,5 +48,5 @@ func check_collision(snake_head):
 	var collided = grid_position == snake_head
 	if collided:
 		emit_signal("eaten")
-	
+
 	return collided

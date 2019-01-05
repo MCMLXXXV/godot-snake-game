@@ -69,7 +69,7 @@ Node initialization.
 """
 func _ready():
 	$Snake.initialize(5, get_random_grid_position(5), get_random_direction())
-	$Food.place($Snake.get_free_cells())	
+	$Food.place($Snake.get_free_cells())
 	$Clock.start()
 
 
@@ -163,7 +163,7 @@ For every 30 points scored, the game speed increases.
 """
 func snake_ate_food():
 	score += 5
-	
+
 	if score % 30 == 0:
 		decrease_clock_delay()
 

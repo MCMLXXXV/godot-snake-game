@@ -1,4 +1,4 @@
-# It's Snake Game, but everytime you play it... • [![made with Godot 3][badge]][godot]
+# It's Snake Game, but everytime you play it... • [![made with Godot 3.1][badge]][godot]
 
 ...it gets more boring!
 
@@ -7,4 +7,4 @@ Hi! This is my first stab at a full game project made with Godot, so bear with m
 This project is shared under the terms of the [MIT License](LICENSE.md), so everyone else who are starting with Godot can learn something or two from it. It's not perfect, could use a few little improvements here and there, but I'm happy with the result so far. I hope you will enjoy it.
 
 [godot]: https://godotengine.org/
-[badge]: https://flat.badgen.net/badge/made%20with/Godot%203/478cbf
+[badge]: https://flat.badgen.net/badge/made%20with/Godot%203.1/478cbf

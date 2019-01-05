@@ -33,7 +33,7 @@ Retrieves the high score value and initializes the PRNG on initialization.
 func _ready():
 	randomize()
 	load_high_score()
-	
+
 	# Connect to the `high_score_updated` signal to save the data file.
 	connect("high_score_updated", self, "save_high_score")
 
@@ -43,16 +43,16 @@ Retrieves last session's high score.
 """
 func load_high_score():
 	var file = File.new()
-	
+
 	# Bail out if there is no save data. Maybe first game?
 	if not file.file_exists(SAVEDATA_FILE):
 		return
-	
+
 	file.open(SAVEDATA_FILE, File.READ)
 	var data = JSON.parse(file.get_as_text()).result
-	
+
 	file.close()
-	
+
 	high_score = data["high_score"]
 
 
