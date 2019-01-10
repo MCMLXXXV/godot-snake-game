@@ -42,16 +42,18 @@ margin_right = 712.0
 margin_bottom = 352.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 0
+custom_constants/separation = 8
 
 [node name="header" type="HBoxContainer" parent="main_layout"]
 margin_right = 704.0
-margin_bottom = 14.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 16 )
 
 [node name="game_over_label" type="Label" parent="main_layout/header"]
 modulate = Color( 1, 1, 1, 0 )
+margin_top = 1.0
 margin_right = 144.0
-margin_bottom = 14.0
+margin_bottom = 15.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.0980392, 0.2, 0, 1 )
 text = "GAME OVER"
@@ -59,29 +61,42 @@ text = "GAME OVER"
 [node name="spacer" type="Container" parent="main_layout/header"]
 margin_left = 148.0
 margin_right = 684.0
-margin_bottom = 14.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
+size_flags_vertical = 5
 
 [node name="points" type="Label" parent="main_layout/header"]
 margin_left = 688.0
 margin_right = 704.0
-margin_bottom = 14.0
-size_flags_vertical = 3
+margin_bottom = 16.0
+size_flags_vertical = 7
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.0980392, 0.2, 0, 1 )
 text = "0"
 align = 2
 
-[node name="grid_container" type="Container" parent="main_layout"]
-margin_top = 14.0
+[node name="grid_container" type="MarginContainer" parent="main_layout"]
+margin_top = 24.0
 margin_right = 704.0
-margin_bottom = 280.0
+margin_bottom = 272.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/margin_right = 64
+custom_constants/margin_top = 8
+custom_constants/margin_left = 64
+custom_constants/margin_bottom = 8
 
 [node name="grid" parent="main_layout/grid_container" instance=ExtResource( 3 )]
-position = Vector2( 0, 8 )
-grid_height = 15
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 64.0
+margin_top = 8.0
+margin_right = 640.0
+margin_bottom = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+grid_width = 36
+grid_height = 14
 
 [node name="game_controls" type="HBoxContainer" parent="main_layout"]
 margin_top = 280.0

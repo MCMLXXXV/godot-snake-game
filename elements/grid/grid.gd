@@ -7,7 +7,7 @@ Where all game action happens.
 You can play the game in its minimal form typing [F6] to test it. Use [←] and
 [→] keys to change direction.
 """
-extends Node2D
+extends Control
 
 
 """
@@ -21,14 +21,6 @@ Emitted when the score updates.
 Required to update the displayed score in the UI.
 """
 signal score_updated(points)
-
-
-"""
-The following fields expose the grid dimensions so they can be customized using
-the Inspector.
-"""
-export (int) var grid_width
-export (int) var grid_height
 
 
 """
@@ -46,6 +38,14 @@ const DIRECTIONS = [
 	Vector2(-1, 0),    # WEST  or LEFT
 	Vector2(1, 0),     # EAST  or RIGHT
 ]
+
+
+"""
+The following fields expose the grid dimensions so they can be customized using
+the Inspector.
+"""
+export (int) var grid_width = 40
+export (int) var grid_height = 20
 
 
 """
@@ -94,6 +94,7 @@ func _on_clock_timeout():
 		$food.place($snake.get_free_cells())
 	else:
 		$snake.move()
+
 
 """
 Changes the direction of the snake when the game is running.

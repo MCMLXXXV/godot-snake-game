@@ -4,11 +4,10 @@
 [ext_resource path="res://elements/snake/snake.tscn" type="PackedScene" id=2]
 [ext_resource path="res://elements/food/food.tscn" type="PackedScene" id=3]
 
-[node name="grid" type="Node2D"]
-position = Vector2( 8, 4 )
+[node name="grid" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
-grid_width = 44
-grid_height = 22
 
 [node name="clock" type="Timer" parent="."]
 process_mode = 0

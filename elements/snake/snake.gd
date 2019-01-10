@@ -29,7 +29,7 @@ coordinates of body segments and position of sprites on this scene.
 """
 onready var grid_width = get_parent().grid_width
 onready var grid_height = get_parent().grid_height
-onready var cell_length = get_parent().CELL_LENGTH
+onready var CELL_LENGTH = get_parent().CELL_LENGTH
 
 
 """
@@ -37,10 +37,10 @@ The snake "updates" every time it moves around the grid. This flag exists to
 avoid the player tapping the rotation button twice, preventing the snake from
 running over itself, ending the game sooner that intended.
 
-Remember that this game is **not** using a four-way directional movement logic
-to move the snake around the grid, unlike most other implementations out there
-do. Such implementations employ a different method to forbid the player
-choosing the wrong direction at the expense of more input validation.
+Keep in mind this game is **not** using four-way movement logic to move the
+snake around the grid, unlike most other implementations do. Some
+implementations employ a different method to forbid the player choosing the
+wrong direction, at the expense of more input validation.
 """
 var updated = false
 
@@ -75,7 +75,7 @@ snake.
 """
 func add_segment(position):
 	var sprite = Segment.instance()
-	sprite.position = position * cell_length
+	sprite.position = position * CELL_LENGTH
 
 	segments.push_front(position)
 
@@ -145,7 +145,7 @@ func update_segments():
 	for i in len(segments):
 		var sprite = sprites[i]
 		var segment = segments[i]
-		sprite.position = cell_length * segment
+		sprite.position = CELL_LENGTH * segment
 
 
 """
@@ -154,8 +154,8 @@ Creates an array of cells not occupied by the snake on the grid.
 func get_free_cells():
 	var free_cells = []
 
-	for i in range(0, grid_height):
-		for j in range(0, grid_width):
+	for i in range(grid_height):
+		for j in range(grid_width):
 			var cell = Vector2(j, i)
 			if not cell in segments:
 				free_cells.append(cell)
