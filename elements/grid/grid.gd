@@ -66,14 +66,13 @@ func _ready():
 
 
 """
-Node update process.
+Node input processing callback.
 """
-func _process(delta):
-	if is_running():
-		if Input.is_action_just_pressed("ui_left"):
-			$snake.turn_left()
-		if Input.is_action_just_pressed("ui_right"):
-			$snake.turn_right()
+func _input(event):
+	if Input.is_action_just_pressed("ui_left"):
+		$snake.turn_left()
+	if Input.is_action_just_pressed("ui_right"):
+		$snake.turn_right()
 
 
 """
