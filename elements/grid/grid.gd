@@ -24,23 +24,6 @@ signal score_updated(points)
 
 
 """
-The side length of each grid unit.
-"""
-const CELL_LENGTH = 16
-
-
-"""
-An array of orthogonal directions. Used to initialize the snake on the grid.
-"""
-const DIRECTIONS = [
-	Vector2(0, -1),    # NORTH or UP
-	Vector2(0, 1),     # SOUTH or DOWN
-	Vector2(-1, 0),    # WEST  or LEFT
-	Vector2(1, 0),     # EAST  or RIGHT
-]
-
-
-"""
 The following fields expose the grid dimensions so they can be customized using
 the Inspector.
 """
@@ -58,8 +41,8 @@ var score = 0
 Draw a frame around the playable game field.
 """
 func _draw():
-	var width = CELL_LENGTH * grid_width
-	var height = CELL_LENGTH * grid_height
+	var width = Const.CELL_LENGTH * grid_width
+	var height = Const.CELL_LENGTH * grid_height
 	draw_rect(Rect2(-1, -1, width + 2, height + 2), Color("#193300"))
 	draw_rect(Rect2(0, 0, width, height), Color("#BFCC00"))
 
@@ -140,7 +123,7 @@ func get_random_grid_cell(margin):
 Get a random direction to face the snake towards.
 """
 func get_random_direction():
-	return DIRECTIONS[randi() % len(DIRECTIONS)]
+	return Const.DIRECTIONS[randi() % len(Const.DIRECTIONS)]
 
 
 """

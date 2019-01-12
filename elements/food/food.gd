@@ -14,14 +14,6 @@ signal eaten
 
 
 """
-This node needs to be instantiated inside the grid. The following field value is
-taken from the Grid scene and are required to calculate the coordinates on the
-grid and the sprite position.
-"""
-onready var cell_length = get_parent().CELL_LENGTH
-
-
-"""
 The grid cell this piece of food occupies on the grid.
 """
 var grid_cell = Vector2()
@@ -38,7 +30,7 @@ func place(free_cells):
 	var index = randi() % total
 
 	grid_cell = free_cells[index]
-	position = grid_cell * cell_length
+	position = grid_cell * Const.CELL_LENGTH
 
 
 """

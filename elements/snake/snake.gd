@@ -29,7 +29,6 @@ coordinates of body segments and position of sprites on this scene.
 """
 onready var grid_width = get_parent().grid_width
 onready var grid_height = get_parent().grid_height
-onready var CELL_LENGTH = get_parent().CELL_LENGTH
 
 
 """
@@ -75,7 +74,7 @@ snake.
 """
 func add_segment(position):
 	var sprite = Segment.instance()
-	sprite.position = position * CELL_LENGTH
+	sprite.position = position * Const.CELL_LENGTH
 
 	segments.push_front(position)
 
@@ -145,7 +144,7 @@ func update_segments():
 	for i in len(segments):
 		var sprite = sprites[i]
 		var segment = segments[i]
-		sprite.position = CELL_LENGTH * segment
+		sprite.position = Const.CELL_LENGTH * segment
 
 
 """
