@@ -24,11 +24,17 @@ signal score_updated(points)
 
 
 """
-The following fields expose the grid dimensions so they can be customized using
-the Inspector.
+The grid width. This measumement is calculated at runtime, based on the parent
+container dimensions, so the game world can scale dynamically.
 """
-export (int) var grid_width = 40
-export (int) var grid_height = 20
+onready var grid_width = max(1, floor(rect_size.x / Const.CELL_LENGTH)) as int
+
+
+"""
+The grid height. This measumement is calculated at runtime, based on the parent
+container dimensions, so the game world can scale dynamically.
+"""
+onready var grid_height = max(1, floor(rect_size.y / Const.CELL_LENGTH)) as int
 
 
 """
@@ -51,7 +57,10 @@ func _draw():
 Node initialization.
 """
 func _ready():
+	$snake.grid_width = grid_width
+	$snake.grid_height = grid_height
 	$snake.initialize(5, get_random_grid_cell(5), get_random_direction())
+
 	$food.place($snake.get_free_cells())
 	$clock.start()
 

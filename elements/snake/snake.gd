@@ -9,7 +9,7 @@ extends Node2D
 
 
 """
-Emitted, well, when the snake dies. Game over!
+Emitted when the snake bites itself. Game over!
 """
 signal died
 
@@ -17,18 +17,21 @@ signal died
 """
 The packed scene object containing the sprite of a single body segment.
 Whenever a new segment is added to the snake body, a new sprite is created and
-added as a child of this scene.
+added as a child node of this scene.
 """
 export (PackedScene) var Segment
 
 
 """
-This node needs to be instantiated inside the grid. The following three field
-values are taken from the Grid scene and are required to calculate the
-coordinates of body segments and position of sprites on this scene.
+The world grid width. Must be a value greater than zero.
 """
-onready var grid_width = get_parent().grid_width
-onready var grid_height = get_parent().grid_height
+var grid_width = 1 setget set_grid_width
+
+
+"""
+The world grid height. Must be a value greater than zero.
+"""
+var grid_height = 1 setget set_grid_height
 
 
 """
@@ -63,7 +66,7 @@ starting at the given grid position and orientend towards the given direction.
 """
 func initialize(initial_segments, initial_grid_cell, initial_direction):
 	direction = initial_direction
-	for i in range(0, initial_segments):
+	for i in range(initial_segments):
 		add_segment(initial_grid_cell)
 		initial_grid_cell += direction
 
@@ -177,3 +180,17 @@ func check_self_collision():
 				emit_signal("died")
 				return true
 	return false
+
+
+"""
+`grid_width` property setter.
+"""
+func set_grid_width(value):
+	grid_width = value if value > 0 else 1
+
+
+"""
+`grid_height` property setter.
+"""
+func set_grid_height(value):
+	grid_height = value if value > 0 else 1
