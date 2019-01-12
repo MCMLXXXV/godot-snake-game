@@ -4,6 +4,7 @@ Segment
 
 A single snake body segment.
 """
+class_name Segment
 extends Sprite
 
 
@@ -17,6 +18,13 @@ const MINIMUM_CELL: Vector2 = Vector2()
 The cell this segment ocupies on the grid.
 """
 var cell: Vector2 = MINIMUM_CELL setget set_cell
+
+
+"""
+Checks collision against another body segment.
+"""
+func will_collide(another_cell: Vector2) -> bool:
+	return cell == another_cell
 
 
 """

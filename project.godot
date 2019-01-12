@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Const",
 "language": "GDScript",
 "path": "res://scripts/const.gd"
+}, {
+"base": "Sprite",
+"class": "Segment",
+"language": "GDScript",
+"path": "res://elements/snake/segment.gd"
 } ]
 _global_script_class_icons={
-"Const": ""
+"Const": "",
+"Segment": ""
 }
 
 [application]

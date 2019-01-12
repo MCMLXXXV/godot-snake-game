@@ -79,9 +79,9 @@ func _input(event):
 Advances the game state every clock tick.
 """
 func _on_clock_timeout():
-	var new_head = $snake.get_new_head()
-	if $food.check_collision(new_head):
-		$snake.add_segment(new_head)
+	var next_cell = $snake.get_next_cell()
+	if $food.check_collision(next_cell):
+		$snake.add_segment(next_cell)
 		$food.place($snake.get_free_cells())
 	else:
 		$snake.move()

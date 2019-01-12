@@ -15,6 +15,18 @@ signal died
 
 
 """
+Minimum grid width allowed.
+"""
+const MINIMUM_WIDTH: int = 1
+
+
+"""
+Minimum grid height allowed.
+"""
+const MINIMUM_HEIGHT: int = 1
+
+
+"""
 The packed scene object containing the sprite of a single body segment.
 Whenever a new segment is added to the snake body, a new sprite is created and
 added as a child node of this scene.
@@ -25,13 +37,13 @@ export (PackedScene) var Segment
 """
 The world grid width. Must be a value greater than zero.
 """
-var grid_width = 1 setget set_grid_width
+var grid_width: int = MINIMUM_WIDTH setget set_grid_width
 
 
 """
 The world grid height. Must be a value greater than zero.
 """
-var grid_height = 1 setget set_grid_height
+var grid_height: int = MINIMUM_HEIGHT setget set_grid_height
 
 
 """
@@ -44,51 +56,46 @@ snake around the grid, unlike most other implementations do. Some
 implementations employ a different method to forbid the player choosing the
 wrong direction, at the expense of more input validation.
 """
-var updated = false
-
-
-"""
-An array of body segments coordinates. Each coordinate is a `Vector2` object.
-"""
-var segments = []
+var updated: bool = false
 
 
 """
 The initial direction the snake should move towards. Will be overriden on
 initialization.
 """
-var direction = Vector2(1, 0)
+var direction: Vector2 = Vector2(1, 0)
 
 
 """
 Places the snake on the grid with a desired number of initial body segments,
 starting at the given grid position and orientend towards the given direction.
 """
-func initialize(initial_segments, initial_grid_cell, initial_direction):
+func initialize(length: int, cell: Vector2, initial_direction: Vector2) -> void:
 	direction = initial_direction
-	for i in range(initial_segments):
-		add_segment(initial_grid_cell)
-		initial_grid_cell += direction
+	for i in range(length):
+		add_segment(cell)
+		cell += direction
 
 
 """
 Appends a new body segment to the front of the queue, making it the head of the
 snake.
 """
-func add_segment(cell):
-	var sprite = Segment.instance()
-	sprite.cell = cell
+func add_segment(cell: Vector2 = Vector2()) -> Segment:
+	var segment = Segment.instance()
+	segment.cell = cell
 
-	segments.push_front(cell)
+	add_child(segment)
+	move_child(segment, 0)
 
-	add_child(sprite)
+	return segment
 
 
 """
 Updates the direction the snake will move to an adjacent coordinate, rotated 90°
 to the left.
 """
-func turn_left():
+func turn_left() -> void:
 	if updated:
 		direction = Vector2(direction.y, -direction.x)
 		updated = false
@@ -98,60 +105,62 @@ func turn_left():
 Updates the direction the snake will move to an adjacent coordinate, rotated 90°
 to the right.
 """
-func turn_right():
+func turn_right() -> void:
 	if updated:
 		direction = Vector2(-direction.y, direction.x)
 		updated = false
 
 
 """
-Returns the coordinate of the head of the snake, that is, the first `Vector2` on
-the `segments` queue.
+Returns the head of the snake, that is, the `Segment` sprite at the top of the
+children node list.
 """
-func get_head():
-	return segments.front()
+func get_head() -> Segment:
+	return get_child(0) as Segment
 
 
 """
 Calculates the cell where the head of the snake will move next. Takes care of
 wrapping around the edges of the grid when necessary.
 """
-func get_new_head():
-	var head = get_head()
-	var new_head = Vector2()
+func get_next_cell() -> Vector2:
+	var head_cell = get_head().cell
+	var next_cell = Vector2()
 
-	new_head.x = wrapf(head.x + direction.x, 0, grid_width)
-	new_head.y = wrapf(head.y + direction.y, 0, grid_height)
+	next_cell.x = wrapf(head_cell.x + direction.x, 0, grid_width)
+	next_cell.y = wrapf(head_cell.y + direction.y, 0, grid_height)
 
-	return new_head
+	return next_cell
 
 
 """
 Move the snake one step in the grid.
 """
-func move():
-	segments.push_front(get_new_head())
-	segments.pop_back()
+func move() -> void:
+	var next_cell = get_next_cell()
 
-	if not check_self_collision():
-		update_segments()
-		updated = true
+	if will_collide(next_cell):
+		emit_signal('died')
+		return
 
+	for segment in get_children():
+		var last_cell = segment.cell
 
-"""
-Updates the sprites of the body segments on the grid.
-"""
-func update_segments():
-	for i in len(segments):
-		get_child(i).cell = segments[i]
+		segment.cell = next_cell
+		next_cell = last_cell
+
+	updated = true
 
 
 """
 Creates an array of cells not occupied by the snake on the grid.
 """
-func get_free_cells():
-	var free_cells = []
+func get_free_cells() -> Array:
+	var segments = []
+	for segment in get_children():
+		segments.push_back(segment.cell)
 
+	var free_cells = []
 	for i in range(grid_height):
 		for j in range(grid_width):
 			var cell = Vector2(j, i)
@@ -166,14 +175,16 @@ func get_free_cells():
 
 
 """
-Checks if the head of the snake ran over its own body.
+Checks if the snake will run over its own body.
 """
-func check_self_collision():
-	if len(segments) > 4:
-		var head = segments[0]
-		for i in range(4, len(segments)):
-			if head == segments[i]:
-				emit_signal("died")
+func will_collide(cell: Vector2) -> bool:
+	var count = get_child_count()
+	# Ignore if the snake is too small.
+	if count > 4:
+		# Do not check for a collision against the tail, to avoid ending the game
+		# when the snake is chasing it.
+		for i in range(3, count - 1):
+			if get_child(i).will_collide(cell):
 				return true
 	return false
 
@@ -181,12 +192,12 @@ func check_self_collision():
 """
 `grid_width` property setter.
 """
-func set_grid_width(value):
-	grid_width = value if value > 0 else 1
+func set_grid_width(value: int) -> void:
+	grid_width = value if value >= MINIMUM_WIDTH else MINIMUM_WIDTH
 
 
 """
 `grid_height` property setter.
 """
-func set_grid_height(value):
-	grid_height = value if value > 0 else 1
+func set_grid_height(value: int) -> void:
+	grid_height = value if value >= MINIMUM_HEIGHT else MINIMUM_HEIGHT
