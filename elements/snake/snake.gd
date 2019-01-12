@@ -75,11 +75,11 @@ func initialize(initial_segments, initial_grid_cell, initial_direction):
 Appends a new body segment to the front of the queue, making it the head of the
 snake.
 """
-func add_segment(position):
+func add_segment(cell):
 	var sprite = Segment.instance()
-	sprite.position = position * Const.CELL_LENGTH
+	sprite.cell = cell
 
-	segments.push_front(position)
+	segments.push_front(cell)
 
 	add_child(sprite)
 
@@ -142,12 +142,8 @@ func move():
 Updates the sprites of the body segments on the grid.
 """
 func update_segments():
-	var sprites = get_children()
-
 	for i in len(segments):
-		var sprite = sprites[i]
-		var segment = segments[i]
-		sprite.position = Const.CELL_LENGTH * segment
+		get_child(i).cell = segments[i]
 
 
 """
