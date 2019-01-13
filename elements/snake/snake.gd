@@ -153,25 +153,15 @@ func move() -> void:
 
 
 """
-Creates an array of cells not occupied by the snake on the grid.
+Removes occupied cells from a grid cell table.
 """
-func get_free_cells() -> Array:
-	var segments = []
+func remove_occupied_cells(grid_cells) -> void:
 	for segment in get_children():
-		segments.push_back(segment.cell)
+		grid_cells.erase(segment.cell)
 
-	var free_cells = []
-	for i in range(grid_height):
-		for j in range(grid_width):
-			var cell = Vector2(j, i)
-			if not cell in segments:
-				free_cells.append(cell)
-
-	if free_cells.empty():
-		# The snake is covering the whole grid!
+	if grid_cells.empty():
+		# It seems that the snake is covering the whole grid!
 		emit_signal("died")
-
-	return free_cells
 
 
 """

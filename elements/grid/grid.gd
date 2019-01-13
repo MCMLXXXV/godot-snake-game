@@ -57,11 +57,9 @@ func _draw():
 Node initialization.
 """
 func _ready():
-	$snake.grid_width = grid_width
-	$snake.grid_height = grid_height
-	$snake.initialize(5, get_random_grid_cell(5), get_random_direction())
+	reset_snake()
+	reset_food()
 
-	$food.place($snake.get_free_cells())
 	$clock.start()
 
 
@@ -82,7 +80,7 @@ func _on_clock_timeout():
 	var next_cell = $snake.get_next_cell()
 	if $food.check_collision(next_cell):
 		$snake.add_segment(next_cell)
-		$food.place($snake.get_free_cells())
+		reset_food()
 	else:
 		$snake.move()
 
@@ -118,6 +116,17 @@ func is_running():
 
 
 """
+Build an array of grid cells to be queried later.
+"""
+func get_grid_cells() -> Array:
+	var grid_cells = []
+	for j in range(grid_height):
+		for i in range(grid_width):
+			grid_cells.push_back(Vector2(i, j))
+	return grid_cells
+
+
+"""
 Get a random coordinate on the grid to spawn the snake.
 """
 func get_random_grid_cell(margin):
@@ -140,6 +149,25 @@ Increase the game speed.
 func decrease_clock_delay():
 	if $clock.wait_time > 0.08:
 		$clock.wait_time -= 0.02
+
+
+"""
+Initializes the snake on the grid.
+"""
+func reset_snake() -> void:
+	$snake.grid_width = grid_width
+	$snake.grid_height = grid_height
+	$snake.initialize(5, get_random_grid_cell(5), get_random_direction())
+
+
+"""
+Places the food on a free grid cell.
+"""
+func reset_food() -> void:
+	var grid_cells = get_grid_cells()
+	$snake.remove_occupied_cells(grid_cells)
+	$food.cell = grid_cells[randi() % len(grid_cells)]
+
 
 """
 Signal callback: stops the game when the snake runs over itself.
