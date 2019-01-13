@@ -15,15 +15,14 @@ signal died
 
 
 """
-Minimum grid width allowed.
+An array of orthogonal directions. Used to initialize the snake on the grid.
 """
-const MINIMUM_WIDTH: int = 1
-
-
-"""
-Minimum grid height allowed.
-"""
-const MINIMUM_HEIGHT: int = 1
+const DIRECTIONS = [
+	Vector2(0, -1),    # NORTH or UP
+	Vector2(1, 0),     # EAST  or RIGHT
+	Vector2(0, 1),     # SOUTH or DOWN
+	Vector2(-1, 0),    # WEST  or LEFT
+]
 
 
 """
@@ -37,13 +36,13 @@ export (PackedScene) var Segment
 """
 The world grid width. Must be a value greater than zero.
 """
-var grid_width: int = MINIMUM_WIDTH setget set_grid_width
+var grid_width: int = Grid.MINIMUM_WIDTH setget set_grid_width
 
 
 """
 The world grid height. Must be a value greater than zero.
 """
-var grid_height: int = MINIMUM_HEIGHT setget set_grid_height
+var grid_height: int = Grid.MINIMUM_HEIGHT setget set_grid_height
 
 
 """
@@ -134,6 +133,13 @@ func get_next_cell() -> Vector2:
 
 
 """
+Get a random direction to face the snake.
+"""
+func get_random_direction():
+	return DIRECTIONS[randi() % len(DIRECTIONS)]
+
+
+"""
 Move the snake one step in the grid.
 """
 func move() -> void:
@@ -183,11 +189,11 @@ func will_collide(cell: Vector2) -> bool:
 `grid_width` property setter.
 """
 func set_grid_width(value: int) -> void:
-	grid_width = value if value >= MINIMUM_WIDTH else MINIMUM_WIDTH
+	grid_width = value if value >= Grid.MINIMUM_WIDTH else Grid.MINIMUM_WIDTH
 
 
 """
 `grid_height` property setter.
 """
 func set_grid_height(value: int) -> void:
-	grid_height = value if value >= MINIMUM_HEIGHT else MINIMUM_HEIGHT
+	grid_height = value if value >= Grid.MINIMUM_HEIGHT else Grid.MINIMUM_HEIGHT

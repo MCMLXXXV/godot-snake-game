@@ -7,6 +7,7 @@ Where all game action happens.
 You can play the game in its minimal form typing [F6] to test it. Use [←] and
 [→] keys to change direction.
 """
+class_name Grid
 extends Control
 
 
@@ -24,17 +25,41 @@ signal score_updated(points)
 
 
 """
+The side length of a grid cell.
+"""
+const CELL_LENGTH: int = 16
+
+
+"""
+Minimum grid height allowed.
+"""
+const MINIMUM_HEIGHT: int = 1
+
+
+"""
+Minimum grid width allowed.
+"""
+const MINIMUM_WIDTH: int = 1
+
+
+"""
+The top-left cell coordinate.
+"""
+const TOPLEFT_CELL: Vector2 = Vector2(0, 0)
+
+
+"""
 The grid width. This measumement is calculated at runtime, based on the parent
 container dimensions, so the game world can scale dynamically.
 """
-onready var grid_width = max(1, floor(rect_size.x / Const.CELL_LENGTH)) as int
+onready var grid_width = max(MINIMUM_WIDTH, floor(rect_size.x / CELL_LENGTH)) as int
 
 
 """
 The grid height. This measumement is calculated at runtime, based on the parent
 container dimensions, so the game world can scale dynamically.
 """
-onready var grid_height = max(1, floor(rect_size.y / Const.CELL_LENGTH)) as int
+onready var grid_height = max(MINIMUM_HEIGHT, floor(rect_size.y / CELL_LENGTH)) as int
 
 
 """
@@ -47,8 +72,8 @@ var score = 0
 Draw a frame around the playable game field.
 """
 func _draw():
-	var width = Const.CELL_LENGTH * grid_width
-	var height = Const.CELL_LENGTH * grid_height
+	var width = CELL_LENGTH * grid_width
+	var height = CELL_LENGTH * grid_height
 	draw_rect(Rect2(-1, -1, width + 2, height + 2), Color("#193300"))
 	draw_rect(Rect2(0, 0, width, height), Color("#BFCC00"))
 
@@ -137,13 +162,6 @@ func get_random_grid_cell(margin):
 
 
 """
-Get a random direction to face the snake towards.
-"""
-func get_random_direction():
-	return Const.DIRECTIONS[randi() % len(Const.DIRECTIONS)]
-
-
-"""
 Increase the game speed.
 """
 func decrease_clock_delay():
@@ -157,7 +175,7 @@ Initializes the snake on the grid.
 func reset_snake() -> void:
 	$snake.grid_width = grid_width
 	$snake.grid_height = grid_height
-	$snake.initialize(5, get_random_grid_cell(5), get_random_direction())
+	$snake.initialize(5, get_random_grid_cell(5), $snake.get_random_direction())
 
 
 """

@@ -14,15 +14,9 @@ signal eaten
 
 
 """
-The minimum position this segment can occupy on the grid.
-"""
-const MINIMUM_CELL: Vector2 = Vector2()
-
-
-"""
 The grid cell this piece of food occupies on the grid.
 """
-var cell: Vector2 = Vector2() setget set_cell
+var cell: Vector2 = Grid.TOPLEFT_CELL setget set_cell
 
 
 """
@@ -40,7 +34,7 @@ func check_collision(snake_head) -> bool:
 `cell` property setter
 """
 func set_cell(value) -> void:
-	cell = value if value >= MINIMUM_CELL else MINIMUM_CELL
+	cell = value if value >= Grid.TOPLEFT_CELL else Grid.TOPLEFT_CELL
 
 	# Make sure the sprite is always updated accordingly.
-	position = Const.CELL_LENGTH * cell
+	position = Grid.CELL_LENGTH * cell
