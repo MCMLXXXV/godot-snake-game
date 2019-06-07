@@ -4,8 +4,8 @@ Grid
 
 Where all game action happens.
 
-You can play the game in its minimal form typing [F6] to test it. Use [←] and
-[→] keys to change direction.
+You can play test the game in its minimal form typing [F6] to test it.
+Use [←] and [→] keys to change direction.
 """
 class_name Grid
 extends Control
@@ -43,7 +43,7 @@ const MINIMUM_WIDTH: int = 1
 
 
 """
-The top-left cell coordinate.
+The top-left cell coordinates.
 """
 const TOPLEFT_CELL: Vector2 = Vector2(0, 0)
 
@@ -69,7 +69,7 @@ var score = 0
 
 
 """
-Draw a frame around the playable game field.
+Draw a rectangular frame around the playable game field.
 """
 func _draw():
 	var width = CELL_LENGTH * grid_width

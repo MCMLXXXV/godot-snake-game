@@ -3,7 +3,7 @@ Snake
 =====
 
 The snake is composed of several body segments, and a new one is added for every
-eaten piece of food.
+piece of food eaten.
 """
 extends Node2D
 
