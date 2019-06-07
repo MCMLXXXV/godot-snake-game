@@ -16,7 +16,6 @@ wait_time = 0.2
 [node name="snake" parent="." instance=ExtResource( 2 )]
 
 [node name="food" parent="." instance=ExtResource( 3 )]
-
 [connection signal="timeout" from="clock" to="." method="_on_clock_timeout"]
 [connection signal="died" from="snake" to="." method="snake_died"]
 [connection signal="eaten" from="food" to="." method="snake_ate_food"]

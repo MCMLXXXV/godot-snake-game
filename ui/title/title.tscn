@@ -67,6 +67,5 @@ text = "HIGH SCORE
 0 POINTS"
 align = 1
 script = ExtResource( 6 )
-
 [connection signal="button_up" from="VBoxContainer/hbox/quit_button" to="." method="quit"]
 [connection signal="button_up" from="VBoxContainer/hbox/start_button" to="." method="start_game"]

@@ -8,7 +8,6 @@
 [ext_resource path="res://ui/game/button-rotate-right.svg" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "blink-game-over"
 length = 0.5
 loop = true
@@ -137,7 +136,6 @@ texture_normal = ExtResource( 6 )
 [node name="animation_player" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
 anims/blink-game-over = SubResource( 1 )
-
 [connection signal="game_over" from="main_layout/grid_container/grid" to="." method="game_over"]
 [connection signal="score_updated" from="main_layout/grid_container/grid" to="." method="update_score"]
 [connection signal="pressed" from="main_layout/game_controls/left_button" to="main_layout/grid_container/grid" method="turn_left"]
