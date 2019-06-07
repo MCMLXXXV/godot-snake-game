@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/button-quit.svg-0257bd3329cbd0b5ad2c2b87a2a092b9.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
