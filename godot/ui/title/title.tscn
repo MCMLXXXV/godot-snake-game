@@ -4,8 +4,9 @@
 [ext_resource path="res://ui/title/title.png" type="Texture" id=2]
 [ext_resource path="res://ui/title/button-quit.svg" type="Texture" id=3]
 [ext_resource path="res://ui/title/button-play.svg" type="Texture" id=4]
-[ext_resource path="res://shared/font-blockily.tres" type="DynamicFont" id=5]
+[ext_resource path="res://resources/font-blockily.tres" type="DynamicFont" id=5]
 [ext_resource path="res://ui/title/high_score_label.gd" type="Script" id=6]
+
 
 [node name="title" type="MarginContainer"]
 anchor_right = 1.0

@@ -1,11 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/game/game.gd" type="Script" id=1]
-[ext_resource path="res://shared/font-blockily.tres" type="DynamicFont" id=2]
+[ext_resource path="res://resources/font-blockily.tres" type="DynamicFont" id=2]
 [ext_resource path="res://elements/grid/grid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/game/button-rotate-left.svg" type="Texture" id=4]
 [ext_resource path="res://ui/game/button-pause.svg" type="Texture" id=5]
 [ext_resource path="res://ui/game/button-rotate-right.svg" type="Texture" id=6]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "blink-game-over"
