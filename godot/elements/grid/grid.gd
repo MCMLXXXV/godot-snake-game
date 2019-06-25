@@ -7,7 +7,6 @@ Where all game action happens.
 You can play test the game in its minimal form typing [F6] to test it.
 Use [←] and [→] keys to change direction.
 """
-class_name Grid
 extends Control
 
 
@@ -25,41 +24,17 @@ signal score_updated(points)
 
 
 """
-The side length of a grid cell.
-"""
-const CELL_LENGTH: int = 16
-
-
-"""
-Minimum grid height allowed.
-"""
-const MINIMUM_HEIGHT: int = 1
-
-
-"""
-Minimum grid width allowed.
-"""
-const MINIMUM_WIDTH: int = 1
-
-
-"""
-The top-left cell coordinates.
-"""
-const TOPLEFT_CELL: Vector2 = Vector2(0, 0)
-
-
-"""
 The grid width. This measumement is calculated at runtime, based on the parent
 container dimensions, so the game world can scale dynamically.
 """
-onready var grid_width = max(MINIMUM_WIDTH, floor(rect_size.x / CELL_LENGTH)) as int
+onready var grid_width = max(Grid.MINIMUM_WIDTH, floor(rect_size.x / Grid.CELL_LENGTH)) as int
 
 
 """
 The grid height. This measumement is calculated at runtime, based on the parent
 container dimensions, so the game world can scale dynamically.
 """
-onready var grid_height = max(MINIMUM_HEIGHT, floor(rect_size.y / CELL_LENGTH)) as int
+onready var grid_height = max(Grid.MINIMUM_HEIGHT, floor(rect_size.y / Grid.CELL_LENGTH)) as int
 
 
 """
@@ -72,8 +47,8 @@ var score = 0
 Draw a rectangular frame around the playable game field.
 """
 func _draw():
-	var width = CELL_LENGTH * grid_width
-	var height = CELL_LENGTH * grid_height
+	var width = Grid.CELL_LENGTH * grid_width
+	var height = Grid.CELL_LENGTH * grid_height
 	draw_rect(Rect2(-1, -1, width + 2, height + 2), Color("#193300"))
 	draw_rect(Rect2(0, 0, width, height), Color("#BFCC00"))
 

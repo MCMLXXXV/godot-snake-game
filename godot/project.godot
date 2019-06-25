@@ -9,19 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Control",
+"base": "Object",
 "class": "Grid",
 "language": "GDScript",
-"path": "res://elements/grid/grid.gd"
-}, {
-"base": "Sprite",
-"class": "Segment",
-"language": "GDScript",
-"path": "res://elements/snake/segment.gd"
+"path": "res://scripts/constants/grid.gd"
 } ]
 _global_script_class_icons={
-"Grid": "",
-"Segment": ""
+"Grid": ""
 }
 
 [application]

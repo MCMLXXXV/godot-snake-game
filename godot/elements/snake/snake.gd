@@ -17,12 +17,7 @@ signal died
 """
 An array of orthogonal directions. Used to initialize the snake on the grid.
 """
-const DIRECTIONS = [
-	Vector2(0, -1),    # NORTH or UP
-	Vector2(1, 0),     # EAST  or RIGHT
-	Vector2(0, 1),     # SOUTH or DOWN
-	Vector2(-1, 0),    # WEST  or LEFT
-]
+const Directions: Array = [Vector2.UP, Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT]
 
 
 """
@@ -30,7 +25,7 @@ The packed scene object containing the sprite of a single body segment.
 Whenever a new segment is added to the snake body, a new sprite is created and
 added as a child node of this scene.
 """
-export (PackedScene) var Segment
+export (PackedScene) var segment
 
 
 """
@@ -62,7 +57,7 @@ var updated: bool = false
 The initial direction the snake should move towards. Will be overriden on
 initialization.
 """
-var direction: Vector2 = Vector2(1, 0)
+var direction: Vector2 = Vector2.RIGHT
 
 
 """
@@ -71,7 +66,7 @@ starting at the given grid position and orientend towards the given direction.
 """
 func initialize(length: int, cell: Vector2, initial_direction: Vector2) -> void:
 	direction = initial_direction
-	for i in range(length):
+	for _i in range(length):
 		add_segment(cell)
 		cell += direction
 
@@ -80,14 +75,12 @@ func initialize(length: int, cell: Vector2, initial_direction: Vector2) -> void:
 Appends a new body segment to the front of the queue, making it the head of the
 snake.
 """
-func add_segment(cell: Vector2 = Vector2()) -> Segment:
-	var segment = Segment.instance()
-	segment.cell = cell
+func add_segment(cell: Vector2 = Vector2()) -> void:
+	var sprite: Sprite = segment.instance()
+	sprite.cell = cell
 
-	add_child(segment)
-	move_child(segment, 0)
-
-	return segment
+	add_child(sprite)
+	move_child(sprite, 0)
 
 
 """
@@ -111,11 +104,11 @@ func turn_right() -> void:
 
 
 """
-Returns the head of the snake, that is, the `Segment` sprite at the top of the
+Returns the head of the snake, that is, the segment at the top of the
 children node list.
 """
-func get_head() -> Segment:
-	return get_child(0) as Segment
+func get_head() -> Sprite:
+	return get_child(0) as Sprite
 
 
 """
@@ -136,7 +129,7 @@ func get_next_cell() -> Vector2:
 Get a random direction to face the snake.
 """
 func get_random_direction():
-	return DIRECTIONS[randi() % len(DIRECTIONS)]
+	return Directions[randi() % len(Directions)]
 
 
 """
@@ -175,12 +168,12 @@ Checks if the snake will run over its own body.
 """
 func will_collide(cell: Vector2) -> bool:
 	var count = get_child_count()
-	# Ignore if the snake is too small.
+	# Ignore if the snake is too short.
 	if count > 4:
 		# Do not check for a collision against the tail, to avoid ending the game
 		# when the snake is chasing it.
 		for i in range(3, count - 1):
-			if get_child(i).will_collide(cell):
+			if get_child(i).is_same_cell(cell):
 				return true
 	return false
 

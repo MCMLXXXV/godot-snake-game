@@ -4,7 +4,6 @@ Segment
 
 A single snake body segment.
 """
-class_name Segment
 extends Sprite
 
 
@@ -15,9 +14,9 @@ var cell: Vector2 = Grid.TOPLEFT_CELL setget set_cell
 
 
 """
-Checks collision against another body segment.
+Used to check collisions against another body segments.
 """
-func will_collide(another_cell: Vector2) -> bool:
+func is_same_cell(another_cell: Vector2) -> bool:
 	return cell == another_cell
 
 
