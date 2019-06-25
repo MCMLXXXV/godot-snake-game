@@ -116,8 +116,8 @@ Calculates the cell where the head of the snake will move next. Takes care of
 wrapping around the edges of the grid when necessary.
 """
 func get_next_cell() -> Vector2:
-	var head_cell = get_head().cell
-	var next_cell = Vector2()
+	var head_cell: Vector2 = get_head().cell
+	var next_cell := Vector2()
 
 	next_cell.x = wrapf(head_cell.x + direction.x, 0, grid_width)
 	next_cell.y = wrapf(head_cell.y + direction.y, 0, grid_height)
@@ -128,7 +128,7 @@ func get_next_cell() -> Vector2:
 """
 Get a random direction to face the snake.
 """
-func get_random_direction():
+func get_random_direction() -> Vector2:
 	return Directions[randi() % len(Directions)]
 
 
@@ -136,14 +136,14 @@ func get_random_direction():
 Move the snake one step in the grid.
 """
 func move() -> void:
-	var next_cell = get_next_cell()
+	var next_cell := get_next_cell()
 
 	if will_collide(next_cell):
 		emit_signal('died')
 		return
 
 	for segment in get_children():
-		var last_cell = segment.cell
+		var last_cell: Vector2 = segment.cell
 
 		segment.cell = next_cell
 		next_cell = last_cell
@@ -167,7 +167,7 @@ func remove_occupied_cells(grid_cells) -> void:
 Checks if the snake will run over its own body.
 """
 func will_collide(cell: Vector2) -> bool:
-	var count = get_child_count()
+	var count := get_child_count()
 	# Ignore if the snake is too short.
 	if count > 4:
 		# Do not check for a collision against the tail, to avoid ending the game

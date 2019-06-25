@@ -7,7 +7,6 @@
 [ext_resource path="res://ui/game/button-pause.svg" type="Texture" id=5]
 [ext_resource path="res://ui/game/button-rotate-right.svg" type="Texture" id=6]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "blink-game-over"
 length = 0.5

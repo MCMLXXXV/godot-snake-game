@@ -11,12 +11,12 @@ extends MarginContainer
 """
 Start button callback: Change to the Game scene.
 """
-func start_game():
+func start_game() -> void:
 	get_tree().change_scene("res://ui/game/game.tscn")
 
 
 """
 Quit button callback: quit game, close application window.
 """
-func quit():
+func quit() -> void:
 	get_tree().quit()

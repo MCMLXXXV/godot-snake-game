@@ -17,20 +17,20 @@ signal high_score_updated
 """
 The name of our save data file.
 """
-const SAVEDATA_FILE = "user://high-score.json"
+const SAVEDATA_FILE: String = "user://high-score.json"
 
 
 """
 Stores the highest points the player ever scored. Can only be updated if the new
 value is greater than the current one.
 """
-var high_score = 0 setget set_high_score
+var high_score: int = 0 setget set_high_score
 
 
 """
 Retrieves the high score value and initializes the PRNG on initialization.
 """
-func _ready():
+func _ready() -> void:
 	randomize()
 	load_high_score()
 
@@ -41,15 +41,15 @@ func _ready():
 """
 Retrieves last session's high score.
 """
-func load_high_score():
-	var file = File.new()
+func load_high_score() -> void:
+	var file := File.new()
 
 	# Bail out if there is no save data. Maybe first game?
 	if not file.file_exists(SAVEDATA_FILE):
 		return
 
 	file.open(SAVEDATA_FILE, File.READ)
-	var data = JSON.parse(file.get_as_text()).result
+	var data: Dictionary = JSON.parse(file.get_as_text()).result
 
 	file.close()
 
@@ -59,9 +59,9 @@ func load_high_score():
 """
 Signal callback. Stores the game's highest scored points for future retrieval.
 """
-func save_high_score():
-	var data = { "high_score": high_score }
-	var file = File.new()
+func save_high_score() -> void:
+	var data := { "high_score": high_score }
+	var file := File.new()
 	if file.open(SAVEDATA_FILE, File.WRITE) == OK:
 		file.store_string(to_json(data))
 		file.close()
@@ -70,7 +70,7 @@ func save_high_score():
 """
 Update the high score only if last game's was higher.
 """
-func set_high_score(score):
+func set_high_score(score) -> void:
 	if score > high_score:
 		high_score = score
 		emit_signal("high_score_updated")
