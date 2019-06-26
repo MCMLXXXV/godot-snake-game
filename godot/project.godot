@@ -86,6 +86,7 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0.74902, 0.8, 0, 1 )
 environment/default_environment="res://default_env.tres"
