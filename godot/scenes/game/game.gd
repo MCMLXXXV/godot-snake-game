@@ -12,7 +12,7 @@ Quick retrieval of a few UI elements.
 """
 onready var grid: Control = $main_layout/grid_container/grid
 onready var animation: AnimationPlayer = $animation_player
-onready var score_label: Label = $main_layout/header/points
+onready var score_label: Label = $main_layout/header/score_label
 onready var game_over_label: Label = $main_layout/header/game_over_label
 
 
@@ -20,7 +20,7 @@ onready var game_over_label: Label = $main_layout/header/game_over_label
 Signal callback. Updates the displayed game score.
 """
 func update_score(points: int) -> void:
-	score_label.text = "%d" % [points]
+	score_label.set_points(points)
 
 
 """

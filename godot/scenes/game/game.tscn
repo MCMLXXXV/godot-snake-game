@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://resources/font-blockily.tres" type="DynamicFont" id=2]
-[ext_resource path="res://elements/grid/grid.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/game/button-rotate-left.svg" type="Texture" id=4]
-[ext_resource path="res://scenes/game/button-pause.svg" type="Texture" id=5]
-[ext_resource path="res://scenes/game/button-rotate-right.svg" type="Texture" id=6]
-
+[ext_resource path="res://ui/score_label/score_label.tscn" type="PackedScene" id=3]
+[ext_resource path="res://elements/grid/grid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/game/button-rotate-left.svg" type="Texture" id=5]
+[ext_resource path="res://scenes/game/button-pause.svg" type="Texture" id=6]
+[ext_resource path="res://scenes/game/button-rotate-right.svg" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "blink-game-over"
@@ -45,37 +45,38 @@ size_flags_vertical = 3
 custom_constants/separation = 8
 
 [node name="header" type="HBoxContainer" parent="main_layout"]
+editor/display_folded = true
 margin_right = 704.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="game_over_label" type="Label" parent="main_layout/header"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 1.0
 margin_right = 144.0
-margin_bottom = 15.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 16 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.0980392, 0.2, 0, 1 )
 text = "GAME OVER"
 
-[node name="spacer" type="Container" parent="main_layout/header"]
+[node name="spacer" type="Control" parent="main_layout/header"]
 margin_left = 148.0
 margin_right = 684.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="points" type="Label" parent="main_layout/header"]
+[node name="score_label" parent="main_layout/header" instance=ExtResource( 3 )]
+editor/display_folded = true
 margin_left = 688.0
 margin_right = 704.0
 margin_bottom = 16.0
-size_flags_vertical = 7
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.0980392, 0.2, 0, 1 )
-text = "0"
-align = 2
+
+[node name="points_label" parent="main_layout/header/score_label" index="1"]
+visible = false
 
 [node name="grid_container" type="MarginContainer" parent="main_layout"]
+editor/display_folded = true
 margin_top = 24.0
 margin_right = 704.0
 margin_bottom = 272.0
@@ -86,7 +87,7 @@ custom_constants/margin_top = 8
 custom_constants/margin_left = 64
 custom_constants/margin_bottom = 8
 
-[node name="grid" parent="main_layout/grid_container" instance=ExtResource( 3 )]
+[node name="grid" parent="main_layout/grid_container" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 64.0
@@ -97,6 +98,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="game_controls" type="HBoxContainer" parent="main_layout"]
+editor/display_folded = true
 margin_top = 280.0
 margin_right = 704.0
 margin_bottom = 344.0
@@ -109,7 +111,7 @@ margin_right = 80.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 80, 64 )
 action_mode = 0
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 
 [node name="spacer" type="CenterContainer" parent="main_layout/game_controls"]
 margin_left = 80.0
@@ -124,7 +126,7 @@ margin_right = 304.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 64, 24 )
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
 
 [node name="right_button" type="TextureButton" parent="main_layout/game_controls"]
 margin_left = 624.0
@@ -132,7 +134,7 @@ margin_right = 704.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 80, 64 )
 action_mode = 0
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 7 )
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
@@ -142,3 +144,5 @@ anims/blink-game-over = SubResource( 1 )
 [connection signal="pressed" from="main_layout/game_controls/left_button" to="main_layout/grid_container/grid" method="turn_left"]
 [connection signal="pressed" from="main_layout/game_controls/spacer/pause_button" to="main_layout/grid_container/grid" method="pause"]
 [connection signal="pressed" from="main_layout/game_controls/right_button" to="main_layout/grid_container/grid" method="turn_right"]
+
+[editable path="main_layout/header/score_label"]

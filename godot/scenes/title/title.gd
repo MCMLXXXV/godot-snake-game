@@ -8,6 +8,10 @@ player to start the game with a single tap.
 extends MarginContainer
 
 
+func _ready() -> void:
+	$vbox/hbox/vbox/score_label.set_points(Global.high_score)
+
+
 """
 Start button callback: Change to the Game scene.
 """
