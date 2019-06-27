@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button-quit.svg-0257bd3329cbd0b5ad2c2b87a2a092b9.stex"
+path="res://.import/button-rotate-left.svg-791e9fbad783848cef24bb952f26fda9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/title/button-quit.svg"
-dest_files=[ "res://.import/button-quit.svg-0257bd3329cbd0b5ad2c2b87a2a092b9.stex" ]
+source_file="res://scenes/game/button-rotate-left.svg"
+dest_files=[ "res://.import/button-rotate-left.svg-791e9fbad783848cef24bb952f26fda9.stex" ]
 
 [params]
 

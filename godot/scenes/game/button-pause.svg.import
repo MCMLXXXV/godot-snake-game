@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button-play.svg-e4ab7571aa3616bf3e0c6349fa1f40c9.stex"
+path="res://.import/button-pause.svg-52e405d4ff986e61dda1865082e29ae2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/title/button-play.svg"
-dest_files=[ "res://.import/button-play.svg-e4ab7571aa3616bf3e0c6349fa1f40c9.stex" ]
+source_file="res://scenes/game/button-pause.svg"
+dest_files=[ "res://.import/button-pause.svg-52e405d4ff986e61dda1865082e29ae2.stex" ]
 
 [params]
 

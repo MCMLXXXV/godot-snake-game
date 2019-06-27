@@ -37,4 +37,4 @@ func game_over() -> void:
 Change the game to the title screen.
 """
 func go_to_title_screen() -> void:
-	get_tree().change_scene("res://ui/title/title.tscn")
+	get_tree().change_scene("res://scenes/title/title.tscn")

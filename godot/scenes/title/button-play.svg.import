@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button-rotate-left.svg-f7fc83dfe1dd5986ba53bc81f5b52694.stex"
+path="res://.import/button-play.svg-7da70e050f77ddb5be1989303ad772da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/game/button-rotate-left.svg"
-dest_files=[ "res://.import/button-rotate-left.svg-f7fc83dfe1dd5986ba53bc81f5b52694.stex" ]
+source_file="res://scenes/title/button-play.svg"
+dest_files=[ "res://.import/button-play.svg-7da70e050f77ddb5be1989303ad772da.stex" ]
 
 [params]
 

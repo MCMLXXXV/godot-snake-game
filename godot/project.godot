@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Snake"
-run/main_scene="res://ui/title/title.tscn"
+run/main_scene="res://scenes/title/title.tscn"
 config/icon="res://icon.png"
 
 [autoload]

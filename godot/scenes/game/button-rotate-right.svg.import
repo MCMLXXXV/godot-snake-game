@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button-pause.svg-8e1ec56b056eaa630343cac295dc458b.stex"
+path="res://.import/button-rotate-right.svg-9fdbf79eeefa06c5b4c8485bc2b93736.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/game/button-pause.svg"
-dest_files=[ "res://.import/button-pause.svg-8e1ec56b056eaa630343cac295dc458b.stex" ]
+source_file="res://scenes/game/button-rotate-right.svg"
+dest_files=[ "res://.import/button-rotate-right.svg-9fdbf79eeefa06c5b4c8485bc2b93736.stex" ]
 
 [params]
 
