@@ -11,7 +11,6 @@ extends MarginContainer
 Quick retrieval of a few UI elements.
 """
 onready var grid: Control = $main_layout/grid_container/grid
-onready var animation: AnimationPlayer = $animation_player
 onready var score_label: Label = $main_layout/header/score_label
 onready var game_over_label: Label = $main_layout/header/game_over_label
 
@@ -27,7 +26,7 @@ func update_score(points: int) -> void:
 Callback of the game over signal.
 """
 func game_over() -> void:
-	animation.play("blink-game-over")
+	game_over_label.animate()
 	Global.high_score = grid.score
 	yield(get_tree().create_timer(3.0), "timeout")
 	go_to_title_screen()

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/font-blockily.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/game-over-label/game-over-label.gd" type="Script" id=2]
+[ext_resource path="res://ui/game-over-label/animations.tres" type="Animation" id=3]
+
+
+
+
+
+[node name="game_over_label" type="Label"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.0980392, 0.2, 0, 1 )
+text = "GAME OVER"
+script = ExtResource( 2 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+anims/blink = ExtResource( 3 )
