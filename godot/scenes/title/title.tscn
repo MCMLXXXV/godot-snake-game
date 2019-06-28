@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/title/button-quit.svg" type="Texture" id=3]
 [ext_resource path="res://scenes/title/button-play.svg" type="Texture" id=4]
 [ext_resource path="res://resources/font-blockily.tres" type="DynamicFont" id=5]
-[ext_resource path="res://ui/score_label/score_label.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/score-label/score-label.tscn" type="PackedScene" id=6]
 
 [node name="title" type="MarginContainer"]
 anchor_right = 1.0

@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://ui/score_label/score_label.gd" type="Script" id=1]
+[ext_resource path="res://ui/score-label/score-label.gd" type="Script" id=1]
 [ext_resource path="res://resources/font-blockily.tres" type="DynamicFont" id=2]
+
+
 
 [node name="score_label" type="HBoxContainer"]
 margin_right = 128.0

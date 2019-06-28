@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://ui/game-over-label/game-over-label.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ui/score_label/score_label.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/score-label/score-label.tscn" type="PackedScene" id=3]
 [ext_resource path="res://elements/grid/grid.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/game/button-rotate-left.svg" type="Texture" id=5]
 [ext_resource path="res://scenes/game/button-pause.svg" type="Texture" id=6]
