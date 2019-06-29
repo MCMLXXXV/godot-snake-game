@@ -114,7 +114,7 @@ rect_min_size = Vector2( 80, 64 )
 action_mode = 0
 texture_normal = ExtResource( 7 )
 [connection signal="game_over" from="main_layout/grid_container/grid" to="." method="game_over"]
-[connection signal="score_updated" from="main_layout/grid_container/grid" to="." method="update_score"]
+[connection signal="score_updated" from="main_layout/grid_container/grid" to="main_layout/header/score_label" method="set_points"]
 [connection signal="pressed" from="main_layout/game_controls/left_button" to="main_layout/grid_container/grid" method="turn_left"]
 [connection signal="pressed" from="main_layout/game_controls/spacer/pause_button" to="main_layout/grid_container/grid" method="pause"]
 [connection signal="pressed" from="main_layout/game_controls/right_button" to="main_layout/grid_container/grid" method="turn_right"]

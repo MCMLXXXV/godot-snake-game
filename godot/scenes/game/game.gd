@@ -16,13 +16,6 @@ onready var game_over_label: Label = $main_layout/header/game_over_label
 
 
 """
-Signal callback. Updates the displayed game score.
-"""
-func update_score(points: int) -> void:
-	score_label.set_points(points)
-
-
-"""
 Callback of the game over signal.
 """
 func game_over() -> void:
