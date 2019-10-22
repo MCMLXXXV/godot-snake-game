@@ -29,6 +29,8 @@ _global_script_class_icons={
 config/name="Snake"
 run/main_scene="res://scenes/title/title.tscn"
 config/icon="res://icon.png"
+config/game_settings_path="user://game-settings.cfg"
+config/game_settings_path.debug="res://data/game-settings.cfg"
 
 [autoload]
 

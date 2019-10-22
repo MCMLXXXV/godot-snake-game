@@ -7,6 +7,10 @@ Manages application settings.
 extends Node
 
 
+const CONFIG_KEY := "application/config/game_settings_path"
+
+
+var game_settings_path: String = ProjectSettings.get(CONFIG_KEY)
 var config_file := ConfigFile.new()
 
 
@@ -15,7 +19,7 @@ func _init() -> void:
 
 
 func load_settings() -> void:
-	if not config_file.load(App.GAME_SETTINGS_PATH) == OK:
+	if config_file.load(game_settings_path) != OK:
 		reset_settings()
 
 
@@ -27,7 +31,7 @@ func reset_settings() -> void:
 
 
 func save_settings() -> void:
-	config_file.save(App.GAME_SETTINGS_PATH)
+	config_file.save(game_settings_path)
 
 
 func get_value(section, key, default):
