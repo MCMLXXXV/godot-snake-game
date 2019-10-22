@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
+[ext_resource path="res://ui/game-over-label/game-over-label.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/score-label/score-label.tscn" type="PackedScene" id=3]
+[ext_resource path="res://elements/grid/grid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/game/button-rotate-left.svg" type="Texture" id=5]
+[ext_resource path="res://scenes/game/button-pause.svg" type="Texture" id=6]
+[ext_resource path="res://scenes/game/button-rotate-right.svg" type="Texture" id=7]
+
+[node name="game" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+script = ExtResource( 1 )
+
+[node name="main_layout" type="VBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 712.0
+margin_bottom = 352.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+
+[node name="header" type="HBoxContainer" parent="main_layout"]
+editor/display_folded = true
+margin_right = 704.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="game_over_label" parent="main_layout/header" instance=ExtResource( 2 )]
+margin_top = 1.0
+margin_right = 144.0
+margin_bottom = 15.0
+
+[node name="spacer" type="Control" parent="main_layout/header"]
+margin_left = 148.0
+margin_right = 684.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="score_label" parent="main_layout/header" instance=ExtResource( 3 )]
+editor/display_folded = true
+margin_left = 688.0
+margin_right = 704.0
+margin_bottom = 16.0
+
+[node name="points_label" parent="main_layout/header/score_label" index="1"]
+visible = false
+
+[node name="grid_container" type="MarginContainer" parent="main_layout"]
+editor/display_folded = true
+margin_top = 24.0
+margin_right = 704.0
+margin_bottom = 272.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 64
+custom_constants/margin_top = 8
+custom_constants/margin_left = 64
+custom_constants/margin_bottom = 8
+
+[node name="grid" parent="main_layout/grid_container" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 64.0
+margin_top = 8.0
+margin_right = 640.0
+margin_bottom = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="game_controls" type="HBoxContainer" parent="main_layout"]
+editor/display_folded = true
+margin_top = 280.0
+margin_right = 704.0
+margin_bottom = 344.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+alignment = 1
+
+[node name="left_button" type="TextureButton" parent="main_layout/game_controls"]
+margin_right = 80.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 80, 64 )
+action_mode = 0
+texture_normal = ExtResource( 5 )
+
+[node name="spacer" type="CenterContainer" parent="main_layout/game_controls"]
+margin_left = 80.0
+margin_right = 624.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+
+[node name="pause_button" type="TextureButton" parent="main_layout/game_controls/spacer"]
+margin_left = 240.0
+margin_top = 20.0
+margin_right = 304.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 64, 24 )
+action_mode = 0
+texture_normal = ExtResource( 6 )
+
+[node name="right_button" type="TextureButton" parent="main_layout/game_controls"]
+margin_left = 624.0
+margin_right = 704.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 80, 64 )
+action_mode = 0
+texture_normal = ExtResource( 7 )
+[connection signal="game_over" from="main_layout/grid_container/grid" to="." method="game_over"]
+[connection signal="score_updated" from="main_layout/grid_container/grid" to="main_layout/header/score_label" method="set_points"]
+[connection signal="pressed" from="main_layout/game_controls/left_button" to="main_layout/grid_container/grid" method="turn_left"]
+[connection signal="pressed" from="main_layout/game_controls/spacer/pause_button" to="main_layout/grid_container/grid" method="pause"]
+[connection signal="pressed" from="main_layout/game_controls/right_button" to="main_layout/grid_container/grid" method="turn_right"]
+
+[editable path="main_layout/header/score_label"]

@@ -1,4 +1,6 @@
 .mono/
 .import/
+godot/data/
+
 export.cfg
 export_presets.cfg
