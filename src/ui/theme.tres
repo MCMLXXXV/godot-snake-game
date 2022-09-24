@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://src/resources/fonts/blockily.tres" type="BitmapFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0980392, 0.2, 0, 1 )
+
+[resource]
+default_font = ExtResource( 1 )
+Button/colors/icon_color_disabled = Color( 1, 1, 1, 1 )
+Button/styles/disabled = SubResource( 8 )
+Button/styles/focus = SubResource( 8 )
+Button/styles/hover = SubResource( 8 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 8 )
+FramePanelContainer/base_type = "PanelContainer"
+FramePanelContainer/styles/panel = SubResource( 9 )
+HBoxContainer/constants/separation = 0
+Label/colors/font_color = Color( 0.0980392, 0.2, 0, 1 )
+MarginContainer/constants/margin_bottom = 2
+MarginContainer/constants/margin_left = 2
+MarginContainer/constants/margin_right = 2
+MarginContainer/constants/margin_top = 2
+VBoxContainer/constants/separation = 0

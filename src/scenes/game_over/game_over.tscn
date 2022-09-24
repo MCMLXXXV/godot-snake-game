@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/scenes/game_over/game_over.gd" type="Script" id=2]
+[ext_resource path="res://src/ui/components/score_label/score_label.tscn" type="PackedScene" id=3]
+
+[node name="GameOver" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+__meta__ = {
+"_editor_description_": "When this timer expires, the game goes back to the Title screen."
+}
+
+[node name="Contents" type="VBoxContainer" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 254.0
+margin_bottom = 286.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="Contents"]
+margin_top = 118.0
+margin_right = 252.0
+margin_bottom = 134.0
+text = "GAME  OVER"
+align = 1
+
+[node name="Points" parent="Contents" instance=ExtResource( 3 )]
+margin_top = 150.0
+margin_right = 252.0
+margin_bottom = 166.0
+label = "Final Score"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

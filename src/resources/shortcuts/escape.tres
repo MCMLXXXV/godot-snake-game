@@ -1,0 +1,9 @@
+[gd_resource type="ShortCut" load_steps=2 format=2]
+
+[sub_resource type="InputEventKey" id=3]
+resource_name = "Escape Key"
+physical_scancode = 16777217
+
+[resource]
+resource_name = "Escape Key Shortcut"
+shortcut = SubResource( 3 )

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/objects/cell/cell.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/textures/elements.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[node name="Segment" instance=ExtResource( 1 )]
+texture = SubResource( 1 )

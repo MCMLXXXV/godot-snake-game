@@ -1,0 +1,7 @@
+disable:
+- max-line-length
+- max-file-lines
+- unused-argument
+excluded_directories: !!set
+  .git: null
+  addons: null

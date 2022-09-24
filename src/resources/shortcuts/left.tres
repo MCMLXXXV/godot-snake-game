@@ -1,0 +1,9 @@
+[gd_resource type="ShortCut" load_steps=2 format=2]
+
+[sub_resource type="InputEventKey" id=6]
+resource_name = "Left Arrow Key"
+physical_scancode = 16777231
+
+[resource]
+resource_name = "Left Arrow Key Shortcut"
+shortcut = SubResource( 6 )

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/textures/buttons.svg" type="Texture" id=1]
+[ext_resource path="res://src/ui/components/pause_button/pause_button.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 112, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 0, 32, 32 )
+
+[sub_resource type="Theme" id=13]
+Icons/icons/pause = SubResource( 4 )
+Icons/icons/play = SubResource( 12 )
+
+[node name="PauseButton" type="Button"]
+unique_name_in_owner = true
+margin_right = 32.0
+margin_bottom = 32.0
+focus_mode = 0
+size_flags_horizontal = 2
+theme = SubResource( 13 )
+toggle_mode = true
+shortcut_in_tooltip = false
+action_mode = 0
+icon = SubResource( 4 )
+script = ExtResource( 2 )
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

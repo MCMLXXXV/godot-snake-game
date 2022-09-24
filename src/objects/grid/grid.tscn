@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/objects/grid/grid.gd" type="Script" id=1]
+[ext_resource path="res://src/objects/cell/instances/food.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/objects/snake/snake.tscn" type="PackedScene" id=3]
+
+[node name="Grid" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+__meta__ = {
+"_editor_description_": "Controls the game speed."
+}
+
+[node name="Food" parent="." instance=ExtResource( 2 )]
+
+[node name="Snake" parent="." instance=ExtResource( 3 )]
+
+[connection signal="timeout" from="Timer" to="." method="step"]

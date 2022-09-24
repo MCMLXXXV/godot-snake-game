@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/ui/components/score_label/score_label.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Count:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "blink"
+length = 0.4
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Count:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="ScoreLabel" type="HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 64.0
+margin_bottom = 14.0
+custom_constants/separation = 8
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Displays the game score, with a custom label."
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 48.0
+margin_bottom = 14.0
+text = "Points"
+uppercase = true
+
+[node name="Count" type="Label" parent="."]
+margin_left = 56.0
+margin_right = 64.0
+margin_bottom = 14.0
+size_flags_horizontal = 10
+text = "0"
+uppercase = true
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/blink = SubResource( 2 )
