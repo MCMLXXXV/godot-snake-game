@@ -8,22 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Sprite",
-"class": "Cell",
-"language": "GDScript",
-"path": "res://src/objects/cell/cell.gd"
-}, {
-"base": "Node2D",
-"class": "Grid",
-"language": "GDScript",
-"path": "res://src/objects/grid/grid.gd"
-} ]
-_global_script_class_icons={
-"Cell": "",
-"Grid": ""
-}
-
 [application]
 
 config/name="snake.gd"

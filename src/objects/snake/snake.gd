@@ -1,7 +1,5 @@
-## Snake
-##
-## A snake, composed of several body segments - a new one is added every time it
-## eats a piece of food.
+## The snake, composed of several body segments - a new one is added each time
+## it eats a piece of food.
 extends Node2D
 
 ## The packed scene, containing the sprite of a single body segment.
@@ -19,7 +17,7 @@ var has_moved: bool
 
 ## Appends a new body segment, making it the head of the snake by default.
 func add_segment(cell: Vector2, is_head: bool = true) -> void:
-	var sprite: Cell = segment_scene.instance()
+	var sprite := segment_scene.instance()
 	sprite.cell = cell
 	add_child(sprite)
 	if is_head:
@@ -35,7 +33,7 @@ func get_next_cell(grid_width: int, grid_height: int) -> Vector2:
 	return Vector2(x, y)
 
 
-## Returns the list of cells occupied by the snake body in the grid.
+## Returns the list of cells occupied by the snake body on the grid.
 func get_occupied_cells() -> Array:
 	var result := []
 	for node in get_children():
@@ -52,14 +50,14 @@ func initialize(size: int, starting_cell: Vector2, starting_direction: Vector2) 
 		starting_cell -= direction
 
 
-## Sets the direction of the snake 90 degeess to the left.
+## Sets the direction of the snake 90 degress to the left.
 func turn_left() -> void:
 	if has_moved:
 		direction = Vector2(direction.y, -direction.x)
 		has_moved = false
 
 
-## Sets the direction of the snake 90 degeess to the right.
+## Sets the direction of the snake 90 degress to the right.
 func turn_right() -> void:
 	if has_moved:
 		direction = Vector2(-direction.y, direction.x)
@@ -68,7 +66,7 @@ func turn_right() -> void:
 
 ## Moves the snake to the given grid cell.
 func walk(cell: Vector2) -> void:
-	var tail: Cell = get_child(get_child_count() - 1)
+	var tail := get_child(get_child_count() - 1)
 	tail.cell = cell
 	move_child(tail, 0)
 	has_moved = true

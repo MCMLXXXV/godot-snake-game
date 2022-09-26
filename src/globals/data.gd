@@ -1,3 +1,4 @@
+## Saves and retrieves JSON file data.
 extends Node
 
 

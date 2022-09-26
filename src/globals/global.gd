@@ -1,5 +1,3 @@
-## Global
-##
 ## Keeps the game's global state.
 extends Node
 
@@ -19,7 +17,7 @@ onready var high_score: int = load_high_score()
 ## Restores the high store value from the settings file.
 static func load_high_score() -> int:
 	match Data.load_json(HIGH_SCORE_PATH):
-		{ "high_score": var value }:
+		{"high_score": var value}:
 			if typeof(value) == TYPE_REAL:
 				return int(value)
 	return DEFAULT_HIGH_SCORE
@@ -28,7 +26,7 @@ static func load_high_score() -> int:
 ## Stores the high score value in the settings file.
 func save_high_score() -> void:
 	if high_score == score:
-		Data.save_json(HIGH_SCORE_PATH, { high_score = high_score })
+		Data.save_json(HIGH_SCORE_PATH, {high_score = high_score})
 
 
 ## Sets the current game score.

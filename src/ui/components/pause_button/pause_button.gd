@@ -1,7 +1,8 @@
+## A simple toggle button, with an alternating icon.
 extends Button
 
 
-func _get_button_icon(value = pressed) -> Texture:
+func _get_button_icon(value: bool = pressed) -> Texture:
 	return theme.get_icon("play" if value else "pause", "Icons")
 
 

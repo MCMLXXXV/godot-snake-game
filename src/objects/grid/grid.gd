@@ -1,7 +1,4 @@
-## Grid
-##
-## The game world, where all game action happens.
-class_name Grid
+## The game world, where all action happens.
 extends Node2D
 
 ## Emitted when the snake eats its food.

@@ -2,7 +2,7 @@
 tool
 extends EditorScript
 
-const BASE_CHAR := 0x20 # ASCII number for the Space character
+const BASE_CHAR := 0x20  # ASCII number for the Space character
 const CHAR_HEIGHT := 16
 const CHAR_WIDTH := 16
 const FONT_NAME := "Blockily"

@@ -1,5 +1,4 @@
 ## A generic grid element.
-class_name Cell
 extends Sprite
 
 ## This grid cell size.
