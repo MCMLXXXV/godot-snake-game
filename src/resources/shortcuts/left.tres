@@ -1,0 +1,9 @@
+[gd_resource type="Shortcut" load_steps=2 format=3 uid="uid://dslbuyyrt7vrx"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_q88ds"]
+resource_name = "Left Arrow Key"
+physical_keycode = 4194319
+
+[resource]
+resource_name = "Left Arrow Key Shortcut"
+events = [SubResource("InputEventKey_q88ds")]

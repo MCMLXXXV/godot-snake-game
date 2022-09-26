@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://fouj7tmefral"]
+
+[ext_resource type="PackedScene" uid="uid://dhh7f5py6q4d5" path="res://src/objects/cell/cell.tscn" id="1_yi6v1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_75rxa"]
+load_path = "res://.godot/imported/elements.png-6ab73029d908f4e7459ad5a8e75e334b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbfyr"]
+atlas = SubResource("CompressedTexture2D_75rxa")
+region = Rect2(16, 0, 16, 16)
+
+[node name="Food" instance=ExtResource("1_yi6v1")]
+texture = SubResource("AtlasTexture_vbfyr")

@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dgg2l0ngkt4y8"]
+
+[ext_resource type="FontFile" uid="uid://b1pc0mx7wpalt" path="res://assets/fonts/blockily.png" id="1_djbxh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idnk5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvuk8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfq7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oeqab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4inq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxru2"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0980392, 0.2, 0, 1)
+
+[resource]
+default_font = ExtResource("1_djbxh")
+default_font_size = 16
+Button/colors/icon_disabled_color = Color(1, 1, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_idnk5")
+Button/styles/focus = SubResource("StyleBoxEmpty_rvuk8")
+Button/styles/hover = SubResource("StyleBoxEmpty_jfq7i")
+Button/styles/normal = SubResource("StyleBoxEmpty_oeqab")
+Button/styles/pressed = SubResource("StyleBoxEmpty_q4inq")
+FramePanelContainer/base_type = &"PanelContainer"
+FramePanelContainer/styles/panel = SubResource("StyleBoxFlat_vxru2")
+HBoxContainer/constants/separation = 0
+Label/colors/font_color = Color(0.0980392, 0.2, 0, 1)
+MarginContainer/constants/margin_bottom = 2
+MarginContainer/constants/margin_left = 2
+MarginContainer/constants/margin_right = 2
+MarginContainer/constants/margin_top = 2
+VBoxContainer/constants/separation = 0

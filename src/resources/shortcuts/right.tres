@@ -1,0 +1,9 @@
+[gd_resource type="Shortcut" load_steps=2 format=3 uid="uid://civieku6xbe8g"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_odbm2"]
+resource_name = "Right Arrow Key"
+physical_keycode = 4194321
+
+[resource]
+resource_name = "Right Arrow Key Shortcut"
+events = [SubResource("InputEventKey_odbm2")]

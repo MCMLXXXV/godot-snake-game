@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://knfxkxm4kd06"]
+
+[ext_resource type="Script" path="res://src/ui/components/score_label/score_label.gd" id="1_cswtl"]
+[ext_resource type="LabelSettings" uid="uid://b8qvqycd00fno" path="res://src/ui/default_label_settings.tres" id="2_04g3s"]
+
+[sub_resource type="Animation" id="Animation_s6eye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Count:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5ti7c"]
+resource_name = "blink"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Count:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ub41s"]
+_data = {
+"RESET": SubResource("Animation_s6eye"),
+"blink": SubResource("Animation_5ti7c")
+}
+
+[node name="ScoreLabel" type="HBoxContainer"]
+editor_description = "Displays the game score, with a custom label."
+offset_right = 76.0
+offset_bottom = 23.0
+theme_override_constants/separation = 8
+script = ExtResource("1_cswtl")
+
+[node name="Heading" type="Label" parent="."]
+layout_mode = 2
+offset_right = 58.0
+offset_bottom = 23.0
+text = "POINTS"
+label_settings = ExtResource("2_04g3s")
+uppercase = true
+
+[node name="Count" type="Label" parent="."]
+layout_mode = 2
+offset_left = 66.0
+offset_right = 76.0
+offset_bottom = 23.0
+size_flags_horizontal = 10
+text = "0"
+label_settings = ExtResource("2_04g3s")
+horizontal_alignment = 1
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ub41s")
+}

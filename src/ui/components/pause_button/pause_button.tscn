@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqqopaoiaiyyp"]
+
+[ext_resource type="Script" path="res://src/ui/components/pause_button/pause_button.gd" id="1_tuiao"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bda7c"]
+load_path = "res://.godot/imported/buttons.svg-840916a4922b2a8449b99543cc679bf7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y6pg"]
+atlas = SubResource("CompressedTexture2D_bda7c")
+region = Rect2(112, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lvxbr"]
+load_path = "res://.godot/imported/buttons.svg-840916a4922b2a8449b99543cc679bf7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrynp"]
+atlas = SubResource("CompressedTexture2D_lvxbr")
+region = Rect2(80, 0, 32, 32)
+
+[sub_resource type="Theme" id="Theme_or3k3"]
+Icons/icons/pause = SubResource("AtlasTexture_0y6pg")
+Icons/icons/play = SubResource("AtlasTexture_xrynp")
+
+[node name="PauseButton" type="Button"]
+editor_description = "A toggle button with an alternating icon."
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 2
+focus_mode = 0
+theme = SubResource("Theme_or3k3")
+toggle_mode = true
+shortcut_in_tooltip = false
+action_mode = 0
+icon = SubResource("AtlasTexture_0y6pg")
+script = ExtResource("1_tuiao")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

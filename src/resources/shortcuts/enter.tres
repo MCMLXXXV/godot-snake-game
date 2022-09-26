@@ -1,0 +1,9 @@
+[gd_resource type="Shortcut" load_steps=2 format=3 uid="uid://dfjrw7n4r222n"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_kddbg"]
+resource_name = "Enter Key"
+physical_keycode = 4194309
+
+[resource]
+resource_name = "Enter Key Shortcut"
+events = [SubResource("InputEventKey_kddbg")]

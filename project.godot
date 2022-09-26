@@ -1,0 +1,61 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="snake.gd"
+run/main_scene="res://src/scenes/title/title.tscn"
+config/features=PackedStringArray("4.0")
+
+[autoload]
+
+Data="*res://src/globals/data.gd"
+Global="*res://src/globals/global.gd"
+
+[debug]
+
+gdscript/warnings/unused_parameter=0
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/size/viewport_width=256
+window/size/viewport_height=288
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": false,
+"mipmaps/limit": -1,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
+}
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.74902, 0.8, 0, 1)
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
+textures/canvas_textures/default_texture_filter=0

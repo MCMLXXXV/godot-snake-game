@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvnt620pknxus"]
+
+[ext_resource type="Script" path="res://src/objects/grid/grid.gd" id="1_1iv73"]
+[ext_resource type="PackedScene" uid="uid://fouj7tmefral" path="res://src/objects/cell/instances/food.tscn" id="2_34vxp"]
+[ext_resource type="PackedScene" uid="uid://ct0rfxcc4frj" path="res://src/objects/snake/snake.tscn" id="3_l4r86"]
+
+[node name="Grid" type="Node2D"]
+script = ExtResource("1_1iv73")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Food" parent="." instance=ExtResource("2_34vxp")]
+
+[node name="Snake" parent="." instance=ExtResource("3_l4r86")]
+
+[connection signal="timeout" from="Timer" to="." method="step"]

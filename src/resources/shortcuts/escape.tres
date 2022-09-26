@@ -1,0 +1,9 @@
+[gd_resource type="Shortcut" load_steps=2 format=3 uid="uid://psckjubf3675"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_kjk8j"]
+resource_name = "Escape Key"
+physical_keycode = 4194305
+
+[resource]
+resource_name = "Escape Key Shortcut"
+events = [SubResource("InputEventKey_kjk8j")]

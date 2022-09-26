@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c72300wklxk8u"]
+
+[ext_resource type="PackedScene" uid="uid://dhh7f5py6q4d5" path="res://src/objects/cell/cell.tscn" id="1_ca850"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6f4f2"]
+load_path = "res://.godot/imported/elements.png-6ab73029d908f4e7459ad5a8e75e334b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsci7"]
+atlas = SubResource("CompressedTexture2D_6f4f2")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Segment" instance=ExtResource("1_ca850")]
+texture = SubResource("AtlasTexture_hsci7")
