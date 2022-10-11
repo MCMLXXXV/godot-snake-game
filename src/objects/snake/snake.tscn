@@ -5,4 +5,4 @@
 
 [node name="Snake" type="Node2D"]
 script = ExtResource("1_p6p8r")
-segment_scene = ExtResource("2_o6gmn")
+metadata/segment_scene = ExtResource("2_o6gmn")

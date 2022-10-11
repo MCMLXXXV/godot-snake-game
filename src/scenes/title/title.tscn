@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/scenes/title/title.gd" id="1_866xx"]
 [ext_resource type="Theme" uid="uid://dgg2l0ngkt4y8" path="res://src/ui/theme.tres" id="1_wskvr"]
-[ext_resource type="Texture2D" uid="uid://cpgpp3qi1hnm3" path="res://assets/textures/title.svg" id="2_hlmx7"]
-[ext_resource type="Texture2D" uid="uid://0t0ygh2klums" path="res://assets/textures/buttons.svg" id="3_mnlys"]
+[ext_resource type="Texture2D" uid="uid://2vpuet6gcjqo" path="res://assets/textures/title.svg" id="2_hlmx7"]
+[ext_resource type="Texture2D" uid="uid://bdrh2mvvbspvt" path="res://assets/textures/buttons.svg" id="3_mnlys"]
 [ext_resource type="PackedScene" uid="uid://knfxkxm4kd06" path="res://src/ui/components/score_label/score_label.tscn" id="3_ncjm3"]
 [ext_resource type="Shortcut" uid="uid://psckjubf3675" path="res://src/resources/shortcuts/escape.tres" id="5_u0hta"]
 [ext_resource type="Shortcut" uid="uid://dfjrw7n4r222n" path="res://src/resources/shortcuts/enter.tres" id="7_l0hok"]
@@ -29,7 +29,6 @@ theme = ExtResource("1_wskvr")
 script = ExtResource("1_866xx")
 
 [node name="Contents" type="VBoxContainer" parent="."]
-layout_mode = 2
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 254.0
@@ -38,7 +37,6 @@ theme_override_constants/separation = 64
 alignment = 1
 
 [node name="Title" type="TextureRect" parent="Contents"]
-layout_mode = 2
 offset_left = 30.0
 offset_top = 34.0
 offset_right = 222.0
@@ -49,14 +47,12 @@ texture = ExtResource("2_hlmx7")
 
 [node name="HighScore" parent="Contents" instance=ExtResource("3_ncjm3")]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 138.0
 offset_right = 252.0
 offset_bottom = 154.0
 label = "High Score"
 
 [node name="Buttons" type="HBoxContainer" parent="Contents"]
-layout_mode = 2
 offset_top = 218.0
 offset_right = 252.0
 offset_bottom = 250.0
@@ -64,7 +60,6 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Quit" type="Button" parent="Contents/Buttons"]
-layout_mode = 2
 offset_left = 47.0
 offset_right = 79.0
 offset_bottom = 32.0
@@ -74,7 +69,6 @@ shortcut = ExtResource("5_u0hta")
 icon = SubResource("AtlasTexture_n21k5")
 
 [node name="Play" type="Button" parent="Contents/Buttons"]
-layout_mode = 2
 offset_left = 173.0
 offset_right = 205.0
 offset_bottom = 32.0

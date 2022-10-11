@@ -5,8 +5,8 @@ extends Node2D
 ## The packed scene, containing the sprite of a single body segment.
 ## A new sprite is added as a child node of this scene, whenever a new segment
 ## is added to the body.
-@export
-var segment_scene: PackedScene
+@onready
+var segment_scene: PackedScene = get_meta("segment_scene")
 
 ## The direction the snake is moving towards.
 var direction: Vector2i
@@ -51,7 +51,7 @@ func initialize(size: int, starting_cell: Vector2i, starting_direction: Vector2i
 ## Sets the direction of the snake 90 degress to the left.
 func turn_left() -> void:
 	if has_moved:
-		direction = Vector2(direction.y, -direction.x)
+		direction = Vector2i(direction.y, -direction.x)
 		has_moved = false
 
 

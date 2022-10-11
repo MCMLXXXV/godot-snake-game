@@ -50,7 +50,6 @@ theme_override_constants/separation = 8
 script = ExtResource("1_cswtl")
 
 [node name="Heading" type="Label" parent="."]
-layout_mode = 2
 offset_right = 58.0
 offset_bottom = 23.0
 text = "POINTS"
@@ -58,7 +57,6 @@ label_settings = ExtResource("2_04g3s")
 uppercase = true
 
 [node name="Count" type="Label" parent="."]
-layout_mode = 2
 offset_left = 66.0
 offset_right = 76.0
 offset_bottom = 23.0
