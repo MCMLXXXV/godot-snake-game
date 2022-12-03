@@ -26,7 +26,7 @@ func add_segment(cell: Vector2, is_head: bool = true) -> void:
 
 ## Returns the cell where the head of the snake should move next. Takes care of
 ## wrapping around the edges of the grid when needed.
-func get_next_cell(grid_width: int, grid_height: int) -> Vector2:
+func get_next_step(grid_width: int, grid_height: int) -> Vector2:
 	var head_cell: Vector2 = get_child(0).cell
 	var x := wrapi(head_cell.x + direction.x, 0, grid_width)
 	var y := wrapi(head_cell.y + direction.y, 0, grid_height)

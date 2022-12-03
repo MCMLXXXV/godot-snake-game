@@ -49,7 +49,7 @@ onready var grid_cells: Array = get_cell_coordinates_list(grid_width, grid_heigh
 
 
 ## Build an array of grid cells to be queried later.
-static func get_cell_coordinates_list(width: int, height: int) -> Array:
+func get_cell_coordinates_list(width: int, height: int) -> Array:
 	var result := []
 	for y in height:
 		for x in width:
@@ -116,25 +116,6 @@ func set_paused(value: bool) -> void:
 	$Timer.paused = value
 
 
-## Starts the game, activating its timer.
-func start() -> void:
-	$Timer.start()
-
-
-## Advances the game state.
-func step() -> void:
-	var cell: Vector2 = $Snake.get_next_cell(grid_width, grid_height)
-	if $Snake.will_collide(cell):
-		$Timer.stop()
-		emit_signal("game_over")
-	elif $Food.cell == cell:
-		$Snake.add_segment(cell)
-		reset_food()
-		emit_signal("food_eaten")
-	else:
-		$Snake.walk(cell)
-
-
 ## Makes the snake turn left the next step.
 func snake_turn_left() -> void:
 	if not is_paused():
@@ -145,6 +126,25 @@ func snake_turn_left() -> void:
 func snake_turn_right() -> void:
 	if not is_paused():
 		$Snake.turn_right()
+
+
+## Starts the game, activating its timer.
+func start() -> void:
+	$Timer.start()
+
+
+## Advances the game state.
+func step() -> void:
+	var cell: Vector2 = $Snake.get_next_step(grid_width, grid_height)
+	if $Snake.will_collide(cell):
+		$Timer.stop()
+		emit_signal("game_over")
+	elif $Food.cell == cell:
+		$Snake.add_segment(cell)
+		reset_food()
+		emit_signal("food_eaten")
+	else:
+		$Snake.walk(cell)
 
 
 func _ready() -> void:

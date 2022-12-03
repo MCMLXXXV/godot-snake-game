@@ -16,10 +16,11 @@ onready var high_score: int = load_high_score()
 
 ## Restores the high store value from the settings file.
 static func load_high_score() -> int:
-	match Data.load_json(HIGH_SCORE_PATH):
-		{"high_score": var value}:
-			if typeof(value) == TYPE_REAL:
-				return int(value)
+	var data = Data.load_json(HIGH_SCORE_PATH)
+	if data is Dictionary:
+		var value = data.get("high_score")
+		if value is float: # NOTE: JSON numbers are always `float`.
+			return int(value)
 	return DEFAULT_HIGH_SCORE
 
 
