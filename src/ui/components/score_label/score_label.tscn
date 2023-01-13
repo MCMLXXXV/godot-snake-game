@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://knfxkxm4kd06"]
+[gd_scene load_steps=5 format=3 uid="uid://knfxkxm4kd06"]
 
 [ext_resource type="Script" path="res://src/ui/components/score_label/score_label.gd" id="1_cswtl"]
-[ext_resource type="LabelSettings" uid="uid://b8qvqycd00fno" path="res://src/ui/default_label_settings.tres" id="2_04g3s"]
 
 [sub_resource type="Animation" id="Animation_s6eye"]
 length = 0.001
@@ -50,19 +49,14 @@ theme_override_constants/separation = 8
 script = ExtResource("1_cswtl")
 
 [node name="Heading" type="Label" parent="."]
-offset_right = 58.0
-offset_bottom = 23.0
+layout_mode = 2
 text = "POINTS"
-label_settings = ExtResource("2_04g3s")
 uppercase = true
 
 [node name="Count" type="Label" parent="."]
-offset_left = 66.0
-offset_right = 76.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 10
 text = "0"
-label_settings = ExtResource("2_04g3s")
 horizontal_alignment = 1
 
 [node name="Animations" type="AnimationPlayer" parent="."]

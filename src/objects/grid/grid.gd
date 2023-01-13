@@ -74,16 +74,16 @@ func get_free_cells(snake_cells: Array[Vector2i]) -> Array[Vector2i]:
 
 
 ## Get a random direction to face the snake head at the start of the game.
-func get_random_direction() -> Vector2:
+func get_random_direction() -> Vector2i:
 	match rng.randi() % 4:
 		0:
-			return Vector2.UP
+			return Vector2i.UP
 		1:
-			return Vector2.RIGHT
+			return Vector2i.RIGHT
 		2:
-			return Vector2.DOWN
+			return Vector2i.DOWN
 		3, _:
-			return Vector2.LEFT
+			return Vector2i.LEFT
 
 
 ## Get a random coordinate inside the grid, with a given distance from the

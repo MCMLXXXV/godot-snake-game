@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bywxe1ldtf0mh"]
+[gd_scene load_steps=4 format=3 uid="uid://bywxe1ldtf0mh"]
 
 [ext_resource type="Theme" uid="uid://dgg2l0ngkt4y8" path="res://src/ui/theme.tres" id="1_75mcv"]
 [ext_resource type="PackedScene" uid="uid://knfxkxm4kd06" path="res://src/ui/components/score_label/score_label.tscn" id="1_aevso"]
 [ext_resource type="Script" path="res://src/scenes/game_over/game_over.gd" id="1_ggtk6"]
-[ext_resource type="LabelSettings" uid="uid://b8qvqycd00fno" path="res://src/ui/default_label_settings.tres" id="2_bdf38"]
 
 [node name="GameOver" type="MarginContainer"]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -21,26 +19,18 @@ one_shot = true
 autostart = true
 
 [node name="Contents" type="VBoxContainer" parent="."]
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 254.0
-offset_bottom = 286.0
+layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
 [node name="Label" type="Label" parent="Contents"]
-offset_top = 118.0
-offset_right = 252.0
-offset_bottom = 134.0
+layout_mode = 2
 text = "GAME  OVER"
-label_settings = ExtResource("2_bdf38")
 horizontal_alignment = 1
 
 [node name="Points" parent="Contents" instance=ExtResource("1_aevso")]
 unique_name_in_owner = true
-offset_top = 150.0
-offset_right = 252.0
-offset_bottom = 166.0
+layout_mode = 2
 label = "Final Score"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

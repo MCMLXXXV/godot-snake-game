@@ -33,6 +33,7 @@ FramePanelContainer/base_type = &"PanelContainer"
 FramePanelContainer/styles/panel = SubResource("StyleBoxFlat_vxru2")
 HBoxContainer/constants/separation = 0
 Label/colors/font_color = Color(0.0980392, 0.2, 0, 1)
+Label/constants/line_spacing = 0
 MarginContainer/constants/margin_bottom = 2
 MarginContainer/constants/margin_left = 2
 MarginContainer/constants/margin_right = 2

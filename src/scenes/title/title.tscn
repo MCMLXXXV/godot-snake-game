@@ -20,7 +20,6 @@ atlas = SubResource("CompressedTexture2D_r6w8o")
 region = Rect2(80, 0, 32, 32)
 
 [node name="Title" type="MarginContainer"]
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -29,49 +28,35 @@ theme = ExtResource("1_wskvr")
 script = ExtResource("1_866xx")
 
 [node name="Contents" type="VBoxContainer" parent="."]
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 254.0
-offset_bottom = 286.0
+layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
 [node name="Title" type="TextureRect" parent="Contents"]
-offset_left = 30.0
-offset_top = 34.0
-offset_right = 222.0
-offset_bottom = 74.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_hlmx7")
 
 [node name="HighScore" parent="Contents" instance=ExtResource("3_ncjm3")]
 unique_name_in_owner = true
-offset_top = 138.0
-offset_right = 252.0
-offset_bottom = 154.0
+layout_mode = 2
 label = "High Score"
 
 [node name="Buttons" type="HBoxContainer" parent="Contents"]
-offset_top = 218.0
-offset_right = 252.0
-offset_bottom = 250.0
+layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Quit" type="Button" parent="Contents/Buttons"]
-offset_left = 47.0
-offset_right = 79.0
-offset_bottom = 32.0
+layout_mode = 2
 size_flags_horizontal = 6
 focus_mode = 0
 shortcut = ExtResource("5_u0hta")
 icon = SubResource("AtlasTexture_n21k5")
 
 [node name="Play" type="Button" parent="Contents/Buttons"]
-offset_left = 173.0
-offset_right = 205.0
-offset_bottom = 32.0
+layout_mode = 2
 size_flags_horizontal = 6
 focus_mode = 0
 shortcut = ExtResource("7_l0hok")

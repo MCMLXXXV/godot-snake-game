@@ -1,6 +1,0 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://b8qvqycd00fno"]
-
-[resource]
-resource_name = "Blockily"
-line_spacing = 0.0
-font_color = Color(0.0980392, 0.2, 0, 1)
