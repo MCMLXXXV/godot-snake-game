@@ -36,7 +36,10 @@ func get_next_step(grid_width: int, grid_height: int) -> Vector2i:
 
 ## Returns the list of cells occupied by the snake body on the grid.
 func get_occupied_cells() -> Array[Vector2i]:
-	return get_children().map(func(n): return n.cell)
+	var result: Array[Vector2i] = []
+	for node in get_children():
+		result.append(node.cell)
+	return result
 
 
 ## Places the snake on the grid with the desired number of initial segments,

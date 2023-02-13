@@ -22,6 +22,7 @@ atlas = SubResource("CompressedTexture2D_74kf3")
 region = Rect2(40, 0, 40, 32)
 
 [node name="Game" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -103,17 +104,17 @@ shortcut = ExtResource("7_gp3hb")
 [node name="TurnLeft" type="Button" parent="Contents/Buttons"]
 layout_mode = 2
 focus_mode = 0
-shortcut_in_tooltip = false
 action_mode = 0
 shortcut = ExtResource("8_xnm24")
+shortcut_in_tooltip = false
 icon = SubResource("AtlasTexture_w5ynp")
 
 [node name="TurnRight" type="Button" parent="Contents/Buttons"]
 layout_mode = 2
 focus_mode = 0
-shortcut_in_tooltip = false
 action_mode = 0
 shortcut = ExtResource("10_8evq7")
+shortcut_in_tooltip = false
 icon = SubResource("AtlasTexture_k4k54")
 
 [connection signal="timeout" from="Start" to="." method="_on_start_timeout"]

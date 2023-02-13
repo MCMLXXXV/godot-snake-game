@@ -2,10 +2,10 @@
 extends Node2D
 
 ## Emitted when the snake eats its food.
-signal food_eaten
+signal food_eaten()
 
 ## Emitted when, you know, the game is over.
-signal game_over
+signal game_over()
 
 ## The default, smallest distance from the grid border the snake head should
 ## spawn at.
@@ -28,11 +28,11 @@ const GRID_MAXIMUM_HEIGHT: int = 32
 
 @export_group("Grid Dimensions", "grid_")
 ## The world width, in grid units.
-@export_range(1, 32, 1, "suffix:cells")
+@export_range(1, GRID_MAXIMUM_WIDTH, 1, "suffix:cells")
 var grid_width: int = GRID_DEFAULT_WIDTH
 
 ## The world height, in grid units.
-@export_range(1, 32, 1, "suffix:cells")
+@export_range(1, GRID_MAXIMUM_HEIGHT, 1, "suffix:cells")
 var grid_height: int = GRID_DEFAULT_HEIGHT
 
 @export_group("Snake")
@@ -59,9 +59,15 @@ var rng := RandomNumberGenerator.new()
 var grid_cells: Array[Vector2i] = get_cell_coordinates_list(grid_width, grid_height)
 
 
+func _ready() -> void:
+	rng.randomize()
+	reset_snake()
+	reset_food()
+
+
 ## Build an array of grid cells to be queried later.
 func get_cell_coordinates_list(width: int, height: int) -> Array[Vector2i]:
-	var result := []
+	var result: Array[Vector2i] = []
 	for y in height:
 		for x in width:
 			result.push_back(Vector2i(x, y))
@@ -143,9 +149,3 @@ func step() -> void:
 		food_eaten.emit()
 	else:
 		$Snake.walk(cell)
-
-
-func _ready() -> void:
-	rng.randomize()
-	reset_snake()
-	reset_food()

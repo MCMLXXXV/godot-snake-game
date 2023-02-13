@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://src/scenes/game_over/game_over.gd" id="1_ggtk6"]
 
 [node name="GameOver" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

@@ -28,8 +28,8 @@ size_flags_horizontal = 2
 focus_mode = 0
 theme = SubResource("Theme_or3k3")
 toggle_mode = true
-shortcut_in_tooltip = false
 action_mode = 0
+shortcut_in_tooltip = false
 icon = SubResource("AtlasTexture_0y6pg")
 script = ExtResource("1_tuiao")
 
