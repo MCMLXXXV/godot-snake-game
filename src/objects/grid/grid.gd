@@ -76,7 +76,7 @@ func get_cell_coordinates_list(width: int, height: int) -> Array[Vector2i]:
 
 ## Returns the list of remaining cells on the grid.
 func get_free_cells(snake_cells: Array[Vector2i]) -> Array[Vector2i]:
-	return grid_cells.filter(func(cell): return cell not in snake_cells)
+	return grid_cells.filter(func(cell): return not cell in snake_cells)
 
 
 ## Get a random direction to face the snake head at the start of the game.

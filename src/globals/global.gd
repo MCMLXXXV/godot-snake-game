@@ -11,8 +11,7 @@ const HIGH_SCORE_PATH: String = "user://high_score.json"
 var score: int = 0:
 	set(value):
 		score = value
-		if score > high_score:
-			high_score = score
+		high_score = maxi(score, high_score)
 
 ## This game's highest score recorded.
 @onready

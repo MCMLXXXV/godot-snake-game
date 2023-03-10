@@ -72,8 +72,8 @@ render_target_update_mode = 4
 [node name="Grid" parent="Contents/Frame/WorldContainer/World" instance=ExtResource("2_cdsqc")]
 unique_name_in_owner = true
 visible = false
-grid_width = 15.0
-grid_height = 14.0
+grid_width = 15
+grid_height = 14
 
 [node name="StartOverlay" type="Label" parent="Contents/Frame"]
 unique_name_in_owner = true
