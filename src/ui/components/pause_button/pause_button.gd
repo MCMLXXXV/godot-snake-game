@@ -2,7 +2,7 @@
 extends Button
 
 
-func _get_button_icon(value: bool = pressed) -> Texture:
+func _get_button_icon(value: bool) -> Texture:
 	return theme.get_icon("play" if value else "pause", "Icons")
 
 
@@ -11,4 +11,4 @@ func _on_toggled(value: bool) -> void:
 
 
 func _ready() -> void:
-	icon = _get_button_icon()
+	icon = _get_button_icon(pressed)

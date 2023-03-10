@@ -48,6 +48,12 @@ var rng := RandomNumberGenerator.new()
 onready var grid_cells: Array = get_cell_coordinates_list(grid_width, grid_height)
 
 
+func _ready() -> void:
+	rng.randomize()
+	reset_snake()
+	reset_food()
+
+
 ## Build an array of grid cells to be queried later.
 func get_cell_coordinates_list(width: int, height: int) -> Array:
 	var result := []
@@ -145,9 +151,3 @@ func step() -> void:
 		emit_signal("food_eaten")
 	else:
 		$Snake.walk(cell)
-
-
-func _ready() -> void:
-	rng.randomize()
-	reset_snake()
-	reset_food()

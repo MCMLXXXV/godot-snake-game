@@ -1,5 +1,8 @@
 # snake.gd • [![made with Godot 3.5][badge]][godot]
 
+> **ℹ Note**: This version of the project is deprecated and won't receive further
+> updates.
+
 A port of this silly game, dating back the 1970's.
 
 > **ℹ Nota**: leia este texto em [português](README.pt_BR.md).

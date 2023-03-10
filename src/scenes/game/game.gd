@@ -2,7 +2,6 @@ extends MarginContainer
 
 
 func _on_game_over_timeout() -> void:
-	Global.save_high_score()
 	get_tree().change_scene("res://src/scenes/game_over/game_over.tscn")
 
 
@@ -14,6 +13,8 @@ func _on_grid_food_eaten() -> void:
 
 
 func _on_grid_game_over() -> void:
+	Global.save_high_score()
+	$"%Pause".disabled = true
 	$"%Points".blink_count()
 	$GameOver.start()
 

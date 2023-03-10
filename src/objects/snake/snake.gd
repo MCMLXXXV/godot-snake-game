@@ -12,24 +12,29 @@ var direction: Vector2
 
 ## Prevent the snake change its direction more than once before it has
 ## properly advanced one cell. Checked to validate player input.
-var has_moved: bool
+var _can_change_direction: bool
+
+
+## Instantiate a new body segment sprite at the given grid cell.
+func _instantiate_segment(at_cell: Vector2) -> Node:
+	var result := segment_scene.instance()
+	result.cell = at_cell
+	return result
 
 
 ## Appends a new body segment, making it the head of the snake by default.
-func add_segment(cell: Vector2, is_head: bool = true) -> void:
-	var sprite := segment_scene.instance()
-	sprite.cell = cell
-	add_child(sprite)
-	if is_head:
-		move_child(sprite, 0)
+func add_segment(cell: Vector2) -> void:
+	var segment := _instantiate_segment(cell)
+	add_child(segment)
+	move_child(segment, 0)
 
 
 ## Returns the cell where the head of the snake should move next. Takes care of
 ## wrapping around the edges of the grid when needed.
 func get_next_step(grid_width: int, grid_height: int) -> Vector2:
-	var head_cell: Vector2 = get_child(0).cell
-	var x := wrapi(head_cell.x + direction.x, 0, grid_width)
-	var y := wrapi(head_cell.y + direction.y, 0, grid_height)
+	var cell: Vector2 = get_child(0).cell
+	var x := wrapf(cell.x + direction.x, 0, grid_width)
+	var y := wrapf(cell.y + direction.y, 0, grid_height)
 	return Vector2(x, y)
 
 
@@ -46,22 +51,22 @@ func get_occupied_cells() -> Array:
 func initialize(size: int, starting_cell: Vector2, starting_direction: Vector2) -> void:
 	direction = starting_direction
 	for _i in size:
-		add_segment(starting_cell, false)
+		add_child(_instantiate_segment(starting_cell))
 		starting_cell -= direction
 
 
 ## Sets the direction of the snake 90 degress to the left.
 func turn_left() -> void:
-	if has_moved:
+	if _can_change_direction:
 		direction = Vector2(direction.y, -direction.x)
-		has_moved = false
+		_can_change_direction = false
 
 
 ## Sets the direction of the snake 90 degress to the right.
 func turn_right() -> void:
-	if has_moved:
+	if _can_change_direction:
 		direction = Vector2(-direction.y, direction.x)
-		has_moved = false
+		_can_change_direction = false
 
 
 ## Moves the snake to the given grid cell.
@@ -69,7 +74,7 @@ func walk(cell: Vector2) -> void:
 	var tail := get_child(get_child_count() - 1)
 	tail.cell = cell
 	move_child(tail, 0)
-	has_moved = true
+	_can_change_direction = true
 
 
 ## Checks if the snake will run over its body.

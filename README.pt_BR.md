@@ -1,5 +1,8 @@
 # snake.gd • [![made with Godot 3.5][badge]][godot]
 
+> **ℹ Nota**: esta versão do projeto será descontinuada em não receberá mais
+> atualizações.
+
 Um _port_ desse jogo bobo que remonta à década de 1970.
 
 
