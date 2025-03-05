@@ -1,23 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://1loh58o2usjj"]
+[gd_scene load_steps=6 format=3 uid="uid://1loh58o2usjj"]
 
-[ext_resource type="Script" path="res://src/scenes/title/title.gd" id="1_866xx"]
-[ext_resource type="Theme" uid="uid://dgg2l0ngkt4y8" path="res://src/ui/theme.tres" id="1_wskvr"]
+[ext_resource type="Script" uid="uid://b3pg7kw3uy2ah" path="res://src/scenes/title/title.gd" id="1_866xx"]
 [ext_resource type="Texture2D" uid="uid://2vpuet6gcjqo" path="res://assets/textures/title.svg" id="2_hlmx7"]
-[ext_resource type="Texture2D" uid="uid://bdrh2mvvbspvt" path="res://assets/textures/buttons.svg" id="3_mnlys"]
 [ext_resource type="PackedScene" uid="uid://knfxkxm4kd06" path="res://src/ui/components/score_label/score_label.tscn" id="3_ncjm3"]
 [ext_resource type="Shortcut" uid="uid://psckjubf3675" path="res://src/resources/shortcuts/escape.tres" id="5_u0hta"]
 [ext_resource type="Shortcut" uid="uid://dfjrw7n4r222n" path="res://src/resources/shortcuts/enter.tres" id="7_l0hok"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n21k5"]
-atlas = ExtResource("3_mnlys")
-region = Rect2(144, 0, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r6w8o"]
-load_path = "res://.godot/imported/buttons.svg-840916a4922b2a8449b99543cc679bf7.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ftwat"]
-atlas = SubResource("CompressedTexture2D_r6w8o")
-region = Rect2(80, 0, 32, 32)
 
 [node name="Title" type="MarginContainer"]
 anchors_preset = 15
@@ -25,7 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_wskvr")
 script = ExtResource("1_866xx")
 
 [node name="Contents" type="VBoxContainer" parent="."]
@@ -53,15 +39,17 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 6
 focus_mode = 0
+theme_type_variation = &"QuitButton"
 shortcut = ExtResource("5_u0hta")
-icon = SubResource("AtlasTexture_n21k5")
+shortcut_in_tooltip = false
 
 [node name="Play" type="Button" parent="Contents/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 6
 focus_mode = 0
+theme_type_variation = &"PlayButton"
 shortcut = ExtResource("7_l0hok")
-icon = SubResource("AtlasTexture_ftwat")
+shortcut_in_tooltip = false
 
 [connection signal="pressed" from="Contents/Buttons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Contents/Buttons/Play" to="." method="_on_play_pressed"]

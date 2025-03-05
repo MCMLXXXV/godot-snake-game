@@ -13,7 +13,7 @@ config_version=5
 config/name="snake.gd"
 config/tags=PackedStringArray("sample", "tutorial")
 run/main_scene="res://src/scenes/title/title.tscn"
-config/features=PackedStringArray("4.2")
+config/features=PackedStringArray("4.4")
 
 [autoload]
 
@@ -31,6 +31,10 @@ window/size/viewport_width=256
 window/size/viewport_height=288
 window/size/resizable=false
 window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom="uid://dgg2l0ngkt4y8"
 
 [importer_defaults]
 

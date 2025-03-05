@@ -1,4 +1,4 @@
-# snake.gd • [![made with Godot 4.2][badge]][godot]
+# snake.gd • [![made with Godot 4.4][badge]][godot]
 
 A port of this silly game, dating back the _1970s_.
 
@@ -20,7 +20,7 @@ A port of this silly game, dating back the _1970s_.
 > I'm a "very" creative person, [I ended making the same thing again][phaser].
 > [...]
 
-Here we are again, ~~four~~six years later, repeating the same mistake 😂
+Here we are again, several years later, repeating the same mistake 😂
 
 However, the original project had its share of issues, so I decided to take off
 the dust and see what could be salvaged from it. It has been rewritten from
@@ -61,5 +61,5 @@ All art and source code are shared under the terms of the [Creative Commons CC0
 1.0 Universal](LICENSE.md) license.
 
 [godot]: https://godotengine.org/
-[badge]: https://flat.badgen.net/badge/made%20with/Godot%204.2/478cbf
+[badge]: https://flat.badgen.net/badge/made%20with/Godot%204.4/478cbf
 [phaser]: https://github.com/rblopes/phaser-3-snake-game

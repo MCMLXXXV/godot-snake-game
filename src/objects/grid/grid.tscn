@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvnt620pknxus"]
 
-[ext_resource type="Script" path="res://src/objects/grid/grid.gd" id="1_1iv73"]
+[ext_resource type="Script" uid="uid://bj1aym5g0l1o5" path="res://src/objects/grid/grid.gd" id="1_1iv73"]
 [ext_resource type="PackedScene" uid="uid://fouj7tmefral" path="res://src/objects/cell/instances/food.tscn" id="2_34vxp"]
 [ext_resource type="PackedScene" uid="uid://ct0rfxcc4frj" path="res://src/objects/snake/snake.tscn" id="3_l4r86"]
 

@@ -16,7 +16,7 @@ var _direction: Vector2i
 var _segment_scene: PackedScene = get_meta("segment_scene")
 
 
-## Appends a new body segment, making it the new head of the snake.
+## Appends a new body segment, making it the new snake's head.
 func add_segment(at_cell: Vector2i) -> void:
 	var segment := _instantiate_segment(at_cell)
 	add_child(segment)
