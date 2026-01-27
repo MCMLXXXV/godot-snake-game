@@ -2,7 +2,7 @@ extends MarginContainer
 
 
 func _on_game_over_timeout() -> void:
-	get_tree().change_scene_to_file("res://src/scenes/game_over/game_over.tscn")
+	get_tree().change_scene_to_file("uid://bywxe1ldtf0mh")
 
 
 func _on_grid_food_eaten() -> void:

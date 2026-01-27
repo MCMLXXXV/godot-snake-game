@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1k0lt3wxyf65"]
+[gd_scene format=3 uid="uid://1k0lt3wxyf65"]
 
 [ext_resource type="Script" uid="uid://4jjijf454j3b" path="res://src/scenes/game/game.gd" id="1_kvssw"]
 [ext_resource type="PackedScene" uid="uid://knfxkxm4kd06" path="res://src/ui/components/score_label/score_label.tscn" id="1_woiv1"]
@@ -8,7 +8,7 @@
 [ext_resource type="Shortcut" uid="uid://dslbuyyrt7vrx" path="res://src/resources/shortcuts/left.tres" id="8_xnm24"]
 [ext_resource type="Shortcut" uid="uid://civieku6xbe8g" path="res://src/resources/shortcuts/right.tres" id="10_8evq7"]
 
-[node name="Game" type="MarginContainer"]
+[node name="Game" type="MarginContainer" unique_id=1613186451]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,37 +16,37 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kvssw")
 
-[node name="Start" type="Timer" parent="."]
+[node name="Start" type="Timer" parent="." unique_id=653304497]
 editor_description = "Waits briefly before the game starts."
 wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="GameOver" type="Timer" parent="."]
+[node name="GameOver" type="Timer" parent="." unique_id=445908761]
 editor_description = "Adds a little interval before the game cuts to the \"Game Over\" scene."
 wait_time = 2.0
 one_shot = true
 
-[node name="Contents" type="VBoxContainer" parent="."]
+[node name="Contents" type="VBoxContainer" parent="." unique_id=1517932957]
 layout_mode = 2
 
-[node name="Points" parent="Contents" instance=ExtResource("1_woiv1")]
+[node name="Points" parent="Contents" unique_id=195380853 instance=ExtResource("1_woiv1")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Frame" type="PanelContainer" parent="Contents"]
+[node name="Frame" type="PanelContainer" parent="Contents" unique_id=2103484006]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_type_variation = &"FramePanelContainer"
 
-[node name="WorldContainer" type="SubViewportContainer" parent="Contents/Frame"]
+[node name="WorldContainer" type="SubViewportContainer" parent="Contents/Frame" unique_id=1319130135]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 224)
 layout_mode = 2
 stretch = true
 
-[node name="World" type="SubViewport" parent="Contents/Frame/WorldContainer"]
+[node name="World" type="SubViewport" parent="Contents/Frame/WorldContainer" unique_id=1887896687]
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
@@ -56,13 +56,13 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(240, 224)
 render_target_update_mode = 4
 
-[node name="Grid" parent="Contents/Frame/WorldContainer/World" instance=ExtResource("2_cdsqc")]
+[node name="Grid" parent="Contents/Frame/WorldContainer/World" unique_id=116736506 instance=ExtResource("2_cdsqc")]
 unique_name_in_owner = true
 visible = false
 grid_width = 15
 grid_height = 14
 
-[node name="StartOverlay" type="Label" parent="Contents/Frame"]
+[node name="StartOverlay" type="Label" parent="Contents/Frame" unique_id=1425129336]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -70,7 +70,7 @@ text = "Get Ready"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="PauseOverlay" type="Label" parent="Contents/Frame"]
+[node name="PauseOverlay" type="Label" parent="Contents/Frame" unique_id=644083432]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -79,16 +79,16 @@ text = "Game Paused"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Buttons" type="HBoxContainer" parent="Contents"]
+[node name="Buttons" type="HBoxContainer" parent="Contents" unique_id=1789576714]
 layout_mode = 2
 
-[node name="Pause" parent="Contents/Buttons" instance=ExtResource("4_s4lxf")]
+[node name="Pause" parent="Contents/Buttons" unique_id=1943451059 instance=ExtResource("4_s4lxf")]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 shortcut = ExtResource("7_gp3hb")
 
-[node name="TurnLeft" type="Button" parent="Contents/Buttons"]
+[node name="TurnLeft" type="Button" parent="Contents/Buttons" unique_id=78728213]
 layout_mode = 2
 focus_mode = 0
 theme_type_variation = &"TurnLeftButton"
@@ -96,7 +96,7 @@ action_mode = 0
 shortcut = ExtResource("8_xnm24")
 shortcut_in_tooltip = false
 
-[node name="TurnRight" type="Button" parent="Contents/Buttons"]
+[node name="TurnRight" type="Button" parent="Contents/Buttons" unique_id=641597455]
 layout_mode = 2
 focus_mode = 0
 theme_type_variation = &"TurnRightButton"

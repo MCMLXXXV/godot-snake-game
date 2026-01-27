@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://1loh58o2usjj"]
+[gd_scene format=3 uid="uid://1loh58o2usjj"]
 
 [ext_resource type="Script" uid="uid://b3pg7kw3uy2ah" path="res://src/scenes/title/title.gd" id="1_866xx"]
 [ext_resource type="Texture2D" uid="uid://2vpuet6gcjqo" path="res://assets/textures/title.svg" id="2_hlmx7"]
@@ -6,7 +6,7 @@
 [ext_resource type="Shortcut" uid="uid://psckjubf3675" path="res://src/resources/shortcuts/escape.tres" id="5_u0hta"]
 [ext_resource type="Shortcut" uid="uid://dfjrw7n4r222n" path="res://src/resources/shortcuts/enter.tres" id="7_l0hok"]
 
-[node name="Title" type="MarginContainer"]
+[node name="Title" type="MarginContainer" unique_id=1485046914]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,28 +14,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_866xx")
 
-[node name="Contents" type="VBoxContainer" parent="."]
+[node name="Contents" type="VBoxContainer" parent="." unique_id=1310502429]
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Title" type="TextureRect" parent="Contents"]
+[node name="Title" type="TextureRect" parent="Contents" unique_id=1274954791]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_hlmx7")
 
-[node name="HighScore" parent="Contents" instance=ExtResource("3_ncjm3")]
+[node name="HighScore" parent="Contents" unique_id=967387043 instance=ExtResource("3_ncjm3")]
 unique_name_in_owner = true
 layout_mode = 2
 label = "High Score"
 
-[node name="Buttons" type="HBoxContainer" parent="Contents"]
+[node name="Buttons" type="HBoxContainer" parent="Contents" unique_id=228571971]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Quit" type="Button" parent="Contents/Buttons"]
+[node name="Quit" type="Button" parent="Contents/Buttons" unique_id=1258551827]
 layout_mode = 2
 size_flags_horizontal = 6
 focus_mode = 0
@@ -43,7 +43,7 @@ theme_type_variation = &"QuitButton"
 shortcut = ExtResource("5_u0hta")
 shortcut_in_tooltip = false
 
-[node name="Play" type="Button" parent="Contents/Buttons"]
+[node name="Play" type="Button" parent="Contents/Buttons" unique_id=1607857907]
 layout_mode = 2
 size_flags_horizontal = 6
 focus_mode = 0

@@ -2,18 +2,17 @@
 ## it eats a piece of food.
 extends Node2D
 
+## The packed scene containing the sprite of a single body segment.
+## A new sprite is added as a child node of this scene, whenever a new segment
+## is added to the body.
+const SEGMENT_SCENE: PackedScene = preload("uid://c72300wklxk8u")
+
 ## Prevents the snake changing its direction more than once before it has
 ## properly advanced one cell. Checked to validate player input.
 var _can_change_direction: bool = true
 
 ## The direction the snake is moving towards.
 var _direction: Vector2i
-
-## The packed scene containing the sprite of a single body segment.
-## A new sprite is added as a child node of this scene, whenever a new segment
-## is added to the body.
-@onready
-var _segment_scene: PackedScene = get_meta("segment_scene")
 
 
 ## Appends a new body segment, making it the new snake's head.
@@ -80,6 +79,6 @@ func will_collide(cell: Vector2i) -> bool:
 
 ## Instantiate a new body segment sprite at the given grid cell.
 func _instantiate_segment(at_cell: Vector2i) -> Sprite2D:
-	var result := _segment_scene.instantiate()
+	var result := SEGMENT_SCENE.instantiate()
 	result.cell = at_cell
 	return result

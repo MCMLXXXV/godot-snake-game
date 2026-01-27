@@ -2,7 +2,7 @@ extends MarginContainer
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/scenes/game/game.tscn")
+	get_tree().change_scene_to_file("uid://1k0lt3wxyf65")
 
 
 func _on_quit_pressed() -> void:

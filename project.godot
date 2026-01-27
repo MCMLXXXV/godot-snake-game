@@ -12,13 +12,13 @@ config_version=5
 
 config/name="snake.gd"
 config/tags=PackedStringArray("sample", "tutorial")
-run/main_scene="res://src/scenes/title/title.tscn"
-config/features=PackedStringArray("4.4")
+run/main_scene="uid://1loh58o2usjj"
+config/features=PackedStringArray("4.6")
 
 [autoload]
 
-Data="*res://src/globals/data.gd"
-Global="*res://src/globals/global.gd"
+Data="*uid://3r3o3nscf1fo"
+Global="*uid://cthwfvqjkvi8w"
 
 [debug]
 
@@ -42,12 +42,19 @@ texture={
 "compress/bptc_ldr": 0,
 "compress/channel_pack": 0,
 "compress/hdr_compression": 1,
+"compress/high_quality": false,
 "compress/lossy_quality": 0.7,
 "compress/mode": 0,
 "compress/normal_map": 0,
+"compress/rdo_quality_loss": 0.0,
+"compress/uastc_level": 0,
 "detect_3d/compress_to": 0,
 "mipmaps/generate": false,
 "mipmaps/limit": -1,
+"process/channel_remap/alpha": 3,
+"process/channel_remap/blue": 2,
+"process/channel_remap/green": 1,
+"process/channel_remap/red": 0,
 "process/fix_alpha_border": true,
 "process/hdr_as_srgb": false,
 "process/hdr_clamp_exposure": false,

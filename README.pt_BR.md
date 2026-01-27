@@ -1,4 +1,4 @@
-# snake.gd • [![made with Godot 4.4][badge]][godot]
+# snake.gd • [![made with Godot 4.6][badge]][godot]
 
 Um _port_ desse jogo bobo que remonta à década de 1970.
 
@@ -57,5 +57,5 @@ Toda arte e códigos-fonte deste projeto estão compartilhados sob os termos da
 licença [Creative Commons CC0 1.0 Universal](LICENSE.md).
 
 [godot]: https://godotengine.org/
-[badge]: https://flat.badgen.net/badge/made%20with/Godot%204.4/478cbf
+[badge]: https://flat.badgen.net/badge/made%20with/Godot%204.6/478cbf
 [phaser]: https://github.com/rblopes/phaser-3-snake-game

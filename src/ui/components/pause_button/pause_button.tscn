@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqqopaoiaiyyp"]
+[gd_scene format=3 uid="uid://dqqopaoiaiyyp"]
 
 [ext_resource type="Script" uid="uid://tkd2cxsb7tlf" path="res://src/ui/components/pause_button/pause_button.gd" id="1_tuiao"]
 
-[node name="PauseButton" type="Button"]
+[node name="PauseButton" type="Button" unique_id=765174249]
 editor_description = "A toggle button with an alternating icon."
 offset_right = 32.0
 offset_bottom = 32.0

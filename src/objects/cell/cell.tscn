@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhh7f5py6q4d5"]
+[gd_scene format=3 uid="uid://dhh7f5py6q4d5"]
 
 [ext_resource type="Script" uid="uid://bs20r2fcjv6mn" path="res://src/objects/cell/cell.gd" id="1_etfjp"]
 
-[node name="Cell" type="Sprite2D"]
+[node name="Cell" type="Sprite2D" unique_id=454889288]
 centered = false
 script = ExtResource("1_etfjp")
